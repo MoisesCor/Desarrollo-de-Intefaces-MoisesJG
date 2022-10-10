@@ -45,7 +45,7 @@ public class programaAgenda {
         System.out.println(agn1.buscaContacto("BBB"));
 
         //Ordena contactos según el identificador
-       // agn1.ordenaConta();
+        agn1.ordenaConta();
         agn1.listarContactos();
         
 
