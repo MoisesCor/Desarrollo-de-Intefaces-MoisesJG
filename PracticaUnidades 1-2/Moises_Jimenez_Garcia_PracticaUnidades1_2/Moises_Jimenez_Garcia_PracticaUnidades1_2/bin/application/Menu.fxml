@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerMenu">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Citaciones">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#abrirFormulario" text="Citar" />
+                  <MenuItem mnemonicParsing="false" onAction="#cerrarListado" text="Salir" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Agenda">
+            <items>
+                  <RadioMenuItem mnemonicParsing="false" text="Pendientes" />
+                  <RadioMenuItem mnemonicParsing="false" text="Acabadas" />
+                  <RadioMenuItem mnemonicParsing="false" text="Todas" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Tutorial">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Ver" />
+                  <MenuItem mnemonicParsing="false" text="Salir" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="     Carlos Herranz">
+               <font>
+                  <Font name="Imprint MT Shadow" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="198.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/pngwing.com.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets right="10.0" />
+         </opaqueInsets>
+      </VBox>
+   </center>
+</BorderPane>
