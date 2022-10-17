@@ -6,27 +6,31 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerMenu">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerMenu">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Citaciones">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#abrirFormulario" text="Citar" />
-                  <MenuItem mnemonicParsing="false" onAction="#cerrarListado" text="Salir" />
+                  <MenuItem fx:id="salir" mnemonicParsing="false" onAction="#cerrarListado" text="Salir" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Agenda">
             <items>
-                  <RadioMenuItem mnemonicParsing="false" text="Pendientes" />
-                  <RadioMenuItem mnemonicParsing="false" text="Acabadas" />
-                  <RadioMenuItem mnemonicParsing="false" text="Todas" />
+                  <RadioMenuItem mnemonicParsing="false" onAction="#abrirPendientes" text="Pendientes">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="agendaSelec" />
+                     </toggleGroup></RadioMenuItem>
+                  <RadioMenuItem mnemonicParsing="false" onAction="#abrirPendientes" text="Acabadas" toggleGroup="$agendaSelec" />
+                  <RadioMenuItem mnemonicParsing="false" onAction="#abrirTodasLasCitas" text="Todas" toggleGroup="$agendaSelec" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Tutorial">

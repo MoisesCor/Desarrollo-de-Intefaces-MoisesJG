@@ -5,15 +5,15 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Citas {
 	
-	private final SimpleStringProperty nombre;
-	private final SimpleStringProperty apellidos;
-	private final SimpleIntegerProperty edad;
-	private final SimpleStringProperty email;
-	private final SimpleIntegerProperty telefono;
-	private final SimpleStringProperty sexo;
-	private final SimpleStringProperty box;
-	private final SimpleStringProperty observaciones;
-	private final SimpleStringProperty fecha;
+	private SimpleStringProperty nombre;
+	private SimpleStringProperty apellidos;
+	private SimpleIntegerProperty edad;
+	private SimpleStringProperty email;
+	private SimpleIntegerProperty telefono;
+	private SimpleStringProperty sexo;
+	private SimpleStringProperty box;
+	private SimpleStringProperty observaciones;
+	private SimpleStringProperty fecha;
 	
 	
 
@@ -21,20 +21,88 @@ public class Citas {
 
 
 
-	public Citas(SimpleStringProperty nombre, SimpleStringProperty apellidos, SimpleIntegerProperty edad,
-			SimpleStringProperty email, SimpleIntegerProperty telefono, SimpleStringProperty sexo,
-			SimpleStringProperty box, SimpleStringProperty observaciones, SimpleStringProperty fecha) {
+	public Citas(String nombre, String apellidos, int edad,
+			String email, int telefono, String sexo,
+			String box, String observaciones, String fecha) {
 		super();
+		this.nombre = new SimpleStringProperty(nombre);
+		this.apellidos = new SimpleStringProperty(apellidos);
+		this.edad = new SimpleIntegerProperty(edad);
+		this.email = new SimpleStringProperty(email);
+		this.telefono = new SimpleIntegerProperty(telefono);
+		this.sexo = new SimpleStringProperty(sexo);
+		this.box =new SimpleStringProperty(box);
+		this.observaciones = new SimpleStringProperty(observaciones);;
+		this.fecha = new SimpleStringProperty(fecha);;
+	}
+	
+	
+
+
+
+
+	public void setNombre(SimpleStringProperty nombre) {
 		this.nombre = nombre;
+	}
+
+
+
+
+	public void setApellidos(SimpleStringProperty apellidos) {
 		this.apellidos = apellidos;
+	}
+
+
+
+
+	public void setEdad(SimpleIntegerProperty edad) {
 		this.edad = edad;
+	}
+
+
+
+
+	public void setEmail(SimpleStringProperty email) {
 		this.email = email;
+	}
+
+
+
+
+	public void setTelefono(SimpleIntegerProperty telefono) {
 		this.telefono = telefono;
+	}
+
+
+
+
+	public void setSexo(SimpleStringProperty sexo) {
 		this.sexo = sexo;
+	}
+
+
+
+
+	public void setBox(SimpleStringProperty box) {
 		this.box = box;
+	}
+
+
+
+
+	public void setObservaciones(SimpleStringProperty observaciones) {
 		this.observaciones = observaciones;
+	}
+
+
+
+
+	public void setFecha(SimpleStringProperty fecha) {
 		this.fecha = fecha;
 	}
+
+
+
 
 	public String getNombre() {
         return nombre.get();
