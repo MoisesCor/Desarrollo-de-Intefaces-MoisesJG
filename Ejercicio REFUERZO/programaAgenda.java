@@ -23,7 +23,7 @@ public class programaAgenda {
         agn1.listarContactos();
 
         //Método buscar contacto y devuelve la posición que ocupa en la agenda
-        System.out.println(agn1.buscaContacto("CCC"));
+        System.out.println(agn1.buscaContacto("CCC")) //PUNTO Y COMA
 
         //Método que te dice si el contacto existe o no existe
         System.out.println(agn1.existeContacto("FFF"));
