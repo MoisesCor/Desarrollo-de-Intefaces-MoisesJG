@@ -61,7 +61,7 @@ public class ControllerDatos {
 	    @FXML
 	    void initialize() {
 	    	
-	    	// Asociamos cada columna del TableView a una propiedad de la clase Person 
+	    	// Asociamos cada columna del TableView a una propiedad de la clase Citas 
 	    	nombre.setCellValueFactory(new PropertyValueFactory<Citas,String>("nombre"));
 	        apellidos.setCellValueFactory(new PropertyValueFactory<Citas,String>("apellidos"));
 	        edad.setCellValueFactory(new PropertyValueFactory<Citas,Integer>("edad"));
@@ -74,7 +74,7 @@ public class ControllerDatos {
 	    	
 	      
 	        
-	        // Se rellena la tabla con objetos de la clase Person
+	        // Se rellena la tabla con objetos de la clase Citas
 	        tablaDatos.setItems(datos);
 
 	    }

@@ -6,21 +6,30 @@ import datos.ControllerDatos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TabPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ControllerMenu {
 	// Pantalla principal en la que se añade o quita contenido
 		private BorderPane rootLayout;
 		private GridPane rootLayout2;
+			        
 	    @FXML
 	    private Button entrar;
+
 	    
 	  @FXML
 	    private void initialize() {
@@ -73,9 +82,10 @@ public class ControllerMenu {
 				stage.setScene(scene);
 				stage.setTitle("Moisés Jiménez PracticaUnidades 1-2");
 				stage.show();
+				//stage.showAndWait(); // deja ventana bloqueda
 				
 				
-				Stage ventana =(Stage) this.entrar.getScene().getWindow();
+				Stage ventana =(Stage) entrar.getScene().getWindow();
 				ventana.close();
 			
 			} catch (Exception e) {
@@ -103,7 +113,18 @@ public class ControllerMenu {
 	
 	@FXML
 	   private void cerrarListado(ActionEvent event) throws IOException { 
-		System.out.println("cerrar");
+		Image image1 = new Image(getClass(). getResourceAsStream("pngwing.com.png"));
+		ImageView imag= new ImageView(image1);
+		
+		imag.setFitHeight(198);
+		imag.setFitWidth(300);	
+		 VBox vbox=new VBox();
+		 vbox.setPrefHeight(200);
+		 vbox.setPrefWidth(100);
+		 vbox.setAlignment(Pos.CENTER);
+		 vbox.getChildren().addAll(imag);
+		rootLayout.setCenter(vbox);
+		
 	}
     @FXML
     void abrirTodasLasCitas(ActionEvent event) {
@@ -135,6 +156,20 @@ public class ControllerMenu {
 		}
 
 	    }
+    
+    @FXML
+    void abrirTutorial(ActionEvent event) {
+    	
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(ControllerMenu.class.getResource("/tutorial/Tutorial.fxml"));
+			TabPane tutorial=(TabPane) loader.load();
+			rootLayout.setCenter(tutorial);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 		
 		
 	    

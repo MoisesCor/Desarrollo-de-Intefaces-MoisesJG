@@ -15,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerMenu">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar style="-fx-background-color: #C4E78D;" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Citaciones">
             <items>
@@ -35,8 +35,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Tutorial">
             <items>
-              <MenuItem mnemonicParsing="false" text="Ver" />
-                  <MenuItem mnemonicParsing="false" text="Salir" />
+              <MenuItem mnemonicParsing="false" onAction="#abrirTutorial" text="Ver" />
+                  <MenuItem mnemonicParsing="false" onAction="#cerrarListado" text="Salir" />
             </items>
           </Menu>
         </menus>
@@ -52,7 +52,7 @@
             </Label>
             <ImageView fitHeight="198.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Downloads/pngwing.com.png" />
+                  <Image url="@pngwing.com.png" />
                </image>
             </ImageView>
          </children>
