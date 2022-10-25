@@ -76,6 +76,8 @@ public class ControllerDatos {
 	        
 	        // Se rellena la tabla con objetos de la clase Citas
 	        tablaDatos.setItems(datos);
+	       
+	        
 
 	    }
 }

@@ -21,11 +21,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ControllerMenu {
 	// Pantalla principal en la que se añade o quita contenido
 		private BorderPane rootLayout;
 		private GridPane rootLayout2;
+		Image image2 = new Image(getClass(). getResourceAsStream("pngwing.com.png"));
 			        
 	    @FXML
 	    private Button entrar;
@@ -52,7 +54,9 @@ public class ControllerMenu {
 				// Mostramos la escena del BorderPane de la variable rootLayot
 				Scene scene = new Scene(rootLayout);
 				Stage stage= new Stage();
+				stage.getIcons().add(image2);
 				stage.setScene(scene);
+				stage.setResizable(false);
 				stage.setTitle("Moisés Jiménez PracticaUnidades 1-2");
 				stage.show();
 			
@@ -79,7 +83,9 @@ public class ControllerMenu {
 				// Mostramos la escena del BorderPane de la variable rootLayot
 				Scene scene = new Scene(rootLayout2);
 				Stage stage= new Stage();
+				stage.getIcons().add(image2);
 				stage.setScene(scene);
+				stage.setResizable(false);
 				stage.setTitle("Moisés Jiménez PracticaUnidades 1-2");
 				stage.show();
 				//stage.showAndWait(); // deja ventana bloqueda
@@ -89,7 +95,7 @@ public class ControllerMenu {
 				ventana.close();
 			
 			} catch (Exception e) {
-				e.printStackTrace();
+				
 			}
 		}
 	    	

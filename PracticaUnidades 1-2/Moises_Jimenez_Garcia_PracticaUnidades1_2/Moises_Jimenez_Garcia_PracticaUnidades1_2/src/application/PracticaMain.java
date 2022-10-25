@@ -3,14 +3,17 @@ package application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 public class PracticaMain extends Application {
 	//private BorderPane rootLayout;	
 	private GridPane rootLayout2;
+	Image image1 = new Image(getClass(). getResourceAsStream("pngwing.com.png"));
 
 	@Override
 	public void start(Stage primaryStage) { //esto es para las ventanas
@@ -29,7 +32,10 @@ public class PracticaMain extends Application {
 
 			// Mostramos la escena del BorderPane de la variable rootLayot
 			Scene scene = new Scene(rootLayout2);
+			primaryStage.getIcons().add(image1);
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			
 			primaryStage.setTitle("Moisés Jiménez PracticaUnidades 1-2");
 			primaryStage.show();
 		} catch (Exception e) {
