@@ -1,11 +1,9 @@
 package formulario;
 
-
-import java.text.SimpleDateFormat;
-
 import UtilidadesMetodosComunes.Utilidades;
 import datos.Citas;
 import datos.ControllerDatos;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -50,6 +48,8 @@ public class ControllerFormulario {
 
   @FXML
   private TextField formularioTelf;
+  @FXML
+  private TextField formularioDNI;
   
   @FXML
   private ToggleGroup Sexo;
@@ -62,7 +62,7 @@ public class ControllerFormulario {
 
   @FXML
   void initialize() {
-	      
+	  formularioDNI.requestFocus();
 	    	box.getItems().addAll("Box 1","Box 2","Box 3");
 	    	
 	    /*Creamos un modal de tipo confirmación, para que el usuario verifique que es lo que de verdad desea hacer */
@@ -81,6 +81,7 @@ public class ControllerFormulario {
     				formularioHombre.setSelected(false);
     				formularioTelf.setText("");
     				formularioEmail.setText("");
+    				formularioDNI.setText("");
     				formularioObservaciones.setText("");
     				box.setValue(null);
     			
@@ -99,15 +100,15 @@ public class ControllerFormulario {
 			 RadioButton selectedRadioButton = (RadioButton) Sexo.getSelectedToggle();
 	    	 String sexo = selectedRadioButton.getText();
 	    	 String nombre=(formularioNombre.getText());
-	    	 System.out.println(nombre);
 	    	 String apellido=(formularioApellido.getText());
 	    	 String email=(formularioEmail.getText());
 	    	 Integer edad=(Integer.parseInt(formularioEdad.getText()));
 	    	 String obser=(formularioObservaciones.getText());
+	    	 String dni=(formularioDNI.getText());
 	    	 String boxx = box.getValue();
 	    	 Integer tlf=(Integer.parseInt(formularioTelf.getText()));
 	    	 
-	    	 Citas cita= new Citas(nombre,apellido,edad,email,tlf,sexo,boxx,obser,"16/10/22");
+	    	 Citas cita= new Citas(nombre,apellido,edad,email,tlf,sexo,boxx,obser,"16/10/22",dni);
 	    	
 	    	if(ControllerDatos.nuevoCliente(cita)) {
 	    		Alert exito= Utilidades.crearAlert(AlertType.INFORMATION, "CONFIRMACIÓN", "Cita añadida", "correctamente");
@@ -131,31 +132,62 @@ public class ControllerFormulario {
 
 private boolean validarDatos() {
 	String camposFaltan="";
+	boolean error=false;
+	
+	
+	
 	if(formularioApellido.getText().trim()==null || formularioApellido.getText().length() == 0) {
 		camposFaltan+="Campo apellido sin intruducir\n";
+		error=true;
 	}
 	if(formularioNombre.getText().trim()==null || formularioNombre.getText().length()==0 ) {
 		camposFaltan+="Campo nombre sin intruducir\n";
+		error=true;
 	}
 	if(formularioEmail.getText().trim()==null || formularioEmail.getText().length()==0) {
 		camposFaltan+="Campo email sin intruducir\n";
+		error=true;
 	}
 	if(formularioTelf.getText().trim()==null|| formularioTelf.getText().length()==0 ) {
 		camposFaltan+="Campo telefono sin intruducir\n";
+		error=true;
 	}
 	if(formularioFecha.getValue()==null) {
 		camposFaltan+="Campo fecha sin intruducir\n";
+		error=true;
 	}
 	if(formularioEdad.getText().trim()==null || formularioEdad.getText().length()==0) {
 		camposFaltan+="Campo edad sin intruducir\n";
+		error=true;
+	}
+	if(formularioDNI.getText().trim()==null || formularioDNI.getText().length()==0) {
+		camposFaltan+="Campo DNI sin intruducir\n";
+		error=true;
 	}
 	if(Sexo.getSelectedToggle()==null) {
 		camposFaltan+="sexo sin intruducir\n";
+		error=true;
 	}
 	if(box.getValue()==null) {
 		camposFaltan+="box sin intruducir\n";
+		error=true;
 	}
-	 if (camposFaltan.length() == 0) {
+	Citas cliente= ControllerDatos.verificarCliente(formularioDNI.getText().trim());
+
+	if(error==false && !cliente.getNombre().equals("vacio")) {
+		
+		if(!cliente.getNombre().equals(formularioNombre.getText().trim())) {
+			
+			camposFaltan="El DNI introducido ya esta adjudicado a otro paciente (Debe coincidir el nombre con el dni)\n";
+			error=true;
+		}{
+			error=false;
+		}
+		
+	}
+		
+	 if (camposFaltan.length() == 0 && error==false) {
+		 
          return true;
      } else {
     	 Alert alert = Utilidades.crearAlert(AlertType.ERROR, "ERROR", "Falta por introducir", camposFaltan);
@@ -164,9 +196,27 @@ private boolean validarDatos() {
 	
 	return false;
 }
-
-
-
-
+	 
+	
 }
+
+@FXML
+void rellenarAutomatico(ActionEvent event) {
+	
+	Citas auux= ControllerDatos.autorellenoCliente(formularioDNI.getText().trim());
+	if(!auux.getNombre().equals(null)) {
+		formularioNombre.setText(auux.getNombre());
+		formularioApellido.setText(auux.getApellidos());
+		formularioEdad.setText(Integer.toString(auux.getEdad()));
+		formularioFecha.setValue(null);
+		formularioMujer.setSelected(false);
+		formularioHombre.setSelected(false);
+		formularioTelf.setText(Integer.toString(auux.getTelefono()));
+		formularioEmail.setText(auux.getEmail());
+		formularioObservaciones.setText("");
+		box.setValue(null);
+	}
+}
+
+
 }

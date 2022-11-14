@@ -1,10 +1,16 @@
 package datos;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.ControllerMenu;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class ControllerDatos2 {
@@ -16,26 +22,28 @@ public class ControllerDatos2 {
     private URL location;
 
     @FXML
-    private Label apellidosLabel;
+    private  TextField apellidosLabel;
 
     @FXML
-    private Label edadLabel;
+    private  TextField edadLabel;
 
     @FXML
-    private Label emailLabel;
+    private  TextField emailLabel;
 
     @FXML
-    private Label nombreLabel;
+    private  TextField nombreLabel;
 
     @FXML
-    private Label numCitas;
+    private  Label numCitas;
 
     @FXML
-    private Label telefonoLabel;
+    private  TextField telefonoLabel;
+    
+    private BorderPane rootLayout;
     
     private Stage dialogStage; // esto es porque nos tenemos que crear una nueva ventana todas las ventanas son stage
     private Citas cita;
-    private boolean okClicked = false;
+   private ControllerDatos controllerdatos;
 
     @FXML
     void initialize() {
@@ -51,10 +59,30 @@ public class ControllerDatos2 {
     	this.cita=cita;
     	nombreLabel.setText(cita.getNombre());
     	apellidosLabel.setText(cita.getApellidos());
-    	edadLabel.setText(cita.getApellidos());
+    	edadLabel.setText(Integer.toString(cita.getEdad()));
     	telefonoLabel.setText(Integer.toString(cita.getTelefono()));
+    	emailLabel.setText(cita.getEmail());
     	numCitas.setText(Integer.toString(num));
     	
     }
+    
+    @FXML
+    private void salirConsulta() {
+        dialogStage.close();
+    }
+    
+    @FXML
+    private void citarDefecto() {
+       ControllerDatos.nuevoCliente(cita);
+       dialogStage.close();
+    }
+    
+    @FXML
+    private void editarPaciente() {
+       ControllerDatos.nuevoCliente(cita);
+       dialogStage.close();
+    }
+    
+  
 
 }

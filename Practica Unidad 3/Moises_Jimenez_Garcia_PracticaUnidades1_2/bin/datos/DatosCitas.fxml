@@ -22,7 +22,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="buscador" promptText="email paciente" />
+                  <TextField fx:id="buscador" promptText="DNI PACIENTE" />
                   <Button mnemonicParsing="false" onAction="#buscarContacto" text="Buscar">
                      <font>
                         <Font name="Calibri Light" size="12.0" />
@@ -40,7 +40,8 @@
                         <TableView fx:id="tablaDatos" layoutX="-1.0" prefHeight="174.0" prefWidth="1201.0">
                            <columns>
                               <TableColumn fx:id="nombre" prefWidth="163.0" text="Nombre" />
-                              <TableColumn fx:id="apellidos" prefWidth="163.0" text="Apellidos" />
+                              <TableColumn fx:id="DNI" prefWidth="106.0" text="DNI" />
+                              <TableColumn fx:id="apellidos" prefWidth="132.0" text="Apellidos" />
                               <TableColumn fx:id="edad" prefWidth="41.0" text="Edad" />
                               <TableColumn fx:id="email" prefWidth="163.0" text="Email" />
                               <TableColumn fx:id="telefono" minWidth="74.0" prefWidth="163.0" text="Teléfono" />

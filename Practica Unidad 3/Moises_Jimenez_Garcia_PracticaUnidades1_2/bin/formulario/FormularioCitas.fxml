@@ -42,13 +42,13 @@
       <Label prefHeight="17.0" prefWidth="48.0" text="Apellido" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
       <Label prefHeight="17.0" prefWidth="33.0" text="Edad " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
       <Label prefHeight="17.0" prefWidth="53.0" text="Contacto" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-      <TextField fx:id="formularioNombre" prefHeight="25.0" prefWidth="490.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-      <TextField fx:id="formularioApellido" promptText="apellidos del paciente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField fx:id="formularioEdad" prefHeight="25.0" prefWidth="452.0" promptText="edad paciente" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="formularioNombre" focusTraversable="false" prefHeight="25.0" prefWidth="490.0" promptText="Nombre paciente" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+      <TextField fx:id="formularioApellido" focusTraversable="false" promptText="apellidos del paciente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="formularioEdad" focusTraversable="false" prefHeight="25.0" prefWidth="452.0" promptText="edad paciente" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label text="Sexo " GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="100.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="4">
          <children>
-            <RadioButton fx:id="formularioMujer" mnemonicParsing="false" text="Mujer">
+            <RadioButton fx:id="formularioMujer" focusTraversable="false" mnemonicParsing="false" text="Mujer">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -56,20 +56,21 @@
                   <ToggleGroup fx:id="Sexo" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="formularioHombre" mnemonicParsing="false" text="Hombre" toggleGroup="$Sexo" />
+            <RadioButton fx:id="formularioHombre" focusTraversable="false" mnemonicParsing="false" text="Hombre" toggleGroup="$Sexo" />
          </children>
       </HBox>
       <Label text="Fecha " GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <children>
-            <DatePicker fx:id="formularioFecha" promptText="Seleciona fecha" />
-            <ComboBox fx:id="box" prefWidth="150.0" promptText="Selecciona box" />
+            <DatePicker fx:id="formularioFecha" focusTraversable="false" promptText="Seleciona fecha" />
+            <ComboBox fx:id="box" focusTraversable="false" prefWidth="150.0" promptText="Selecciona box" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <children>
-            <TextField fx:id="formularioEmail" prefHeight="25.0" prefWidth="174.0" promptText="email" />
-            <TextField fx:id="formularioTelf" promptText="teléfono" />
+            <TextField fx:id="formularioEmail" focusTraversable="false" prefHeight="25.0" prefWidth="174.0" promptText="email" />
+            <TextField fx:id="formularioTelf" focusTraversable="false" promptText="teléfono" />
+            <TextField fx:id="formularioDNI" onAction="#rellenarAutomatico" promptText="DNI" />
          </children>
       </HBox>
       <Label text="Observaciones " GridPane.halignment="RIGHT" GridPane.rowIndex="6" />

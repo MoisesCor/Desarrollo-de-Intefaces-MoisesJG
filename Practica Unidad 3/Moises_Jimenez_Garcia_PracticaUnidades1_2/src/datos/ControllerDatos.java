@@ -55,12 +55,14 @@ public class ControllerDatos {
 
 	    @FXML
 	    private TableColumn<Citas, String> observaciones;
+	    @FXML
+	    private TableColumn<Citas, String> DNI;
 
 	    @FXML
 	    private TableColumn<Citas, String> sexo;
 
 	    @FXML
-	    private TableView<Citas> tablaDatos;
+	    private  TableView<Citas> tablaDatos;
 
 	    @FXML
 	    private TableColumn<Citas, Integer> telefono;
@@ -75,10 +77,10 @@ public class ControllerDatos {
 	    
 	  
 	    public static ObservableList<Citas> datos = FXCollections.observableArrayList(
-    			new Citas("Moisés","Jiménez",30,"mois@gamil.com",66666666,"Hombre","box1","tendinitis","16/10/22"),
-    			new Citas("Vanesa","Pérez",22,"vane@gamil.com",7777777,"Mujer","box2","Esguince","16/10/22"),
-    			new Citas("Raquel","Solear",50,"raquel@gamil.com",555555555,"Mujer","box1","fractura","17/10/22"),
-    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","box3","cuento","16/10/22")
+    			new Citas("Moisés","Jiménez",30,"mois@gamil.com",66666666,"Hombre","box1","tendinitis","16/10/22","1111S"),
+    			new Citas("Vanesa","Pérez",22,"vane@gamil.com",7777777,"Mujer","box2","Esguince","16/10/22","2222T"),
+    			new Citas("Raquel","Solear",50,"raquel@gamil.com",555555555,"Mujer","box1","fractura","17/10/22","3333V"),
+    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","box3","cuento","16/10/22","OOOOR")
     			);
 	    
 		public ObservableList<Citas> getDatos() {
@@ -99,6 +101,7 @@ public class ControllerDatos {
 	        box.setCellValueFactory(new PropertyValueFactory<Citas,String>("box"));
 	        observaciones.setCellValueFactory(new PropertyValueFactory<Citas,String>("observaciones"));
 	        fecha.setCellValueFactory(new PropertyValueFactory<Citas,String>("fecha"));
+	        DNI.setCellValueFactory(new PropertyValueFactory<Citas,String>("DNI"));
 	    	
 	        
 	        // Se rellena la tabla con objetos de la clase Citas
@@ -108,10 +111,11 @@ public class ControllerDatos {
 
 	    }
 	    
+	    /*Método para insetar nueva cita*/
 	    public static boolean nuevoCliente(Citas cita) {
 	    	try {
 				datos.add(cita);
-				return true;
+			return true;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -120,13 +124,64 @@ public class ControllerDatos {
 		
 	    }
 	    
+	    public static boolean editarCliente(Citas cita) {
+	    	try {
+				datos.add(cita);
+			return true;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		
+	    }
+	    
+	    public static Citas verificarCliente( String dni) {
+	    	Citas citaaux=null;
+	    	boolean ok=false;
+	    
+	    		for(Citas aux: datos) {
+	    		
+	    			if(aux.getDNI().equals(dni)) {
+	    				citaaux=aux;
+	    				ok=true;
+	    				//valor=aux.getNombre();
+	    			}
+	    		}
+	    		if(ok) {
+	    			return citaaux; 
+	    		}else {
+	    			Citas vacio = new Citas("vacio","",0,"",0,"","","","","");
+	    			return vacio;
+	    		}
+	    		
+		
+	    }
+	    
+	    public static Citas autorellenoCliente( String dni) {
+	    	Citas citaaux= new Citas();
+	    	
+	    		for(Citas aux: datos) {
+	    		
+	    			if(aux.getDNI().equals(dni)) {
+	    				citaaux= aux;
+	    				//valor=aux.getNombre();
+	    			}
+	    		}
+	    		
+			return citaaux;
+		
+		
+	    }
+	    
+	    
+	    
    @FXML
 	    void buscarContacto(ActionEvent event) {
-	    	System.out.println("entra");
 	    	 cita1 = new Citas ();
 	    	int contador=0;
 	    	for(Citas cliente: datos) {
-	    		if(cliente.getNombre().equals(buscador.getText())) {
+	    		if(cliente.getDNI().equals(buscador.getText())) {
 	    			cita1=cliente;
 	    			 contador++;
 	    		}

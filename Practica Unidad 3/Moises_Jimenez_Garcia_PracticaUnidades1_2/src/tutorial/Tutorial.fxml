@@ -103,7 +103,7 @@
                               <TextFlow prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="En esta opción podras citar a tus pacientes rellenando un formulario sencillo. Teniendo la opción de guardar, esto registrará la cita en la agenda o deshacer que borrara el contenido del formulario" wrappingWidth="188.3671875" />
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="ir" />
+                                    <Button mnemonicParsing="false" onAction="#mostrarFormulario" prefHeight="25.0" prefWidth="50.0" text="ir" />
                                  </children>
                               </TextFlow>
                               <TreeView fx:id="treeCarpetas" prefHeight="200.0" prefWidth="200.0" />
@@ -122,7 +122,7 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <Button mnemonicParsing="false" style="-fx-background-color: #0A97E0;" text="Todas las citas">
+                                                <Button mnemonicParsing="false" onAction="#mostrarCitas" style="-fx-background-color: #0A97E0;" text="Todas las citas">
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>

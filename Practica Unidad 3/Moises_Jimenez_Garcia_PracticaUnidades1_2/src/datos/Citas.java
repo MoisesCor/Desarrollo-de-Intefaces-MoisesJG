@@ -14,6 +14,7 @@ public class Citas {
 	private SimpleStringProperty box;
 	private SimpleStringProperty observaciones;
 	private SimpleStringProperty fecha;
+	private SimpleStringProperty DNI;
 	
 	
 
@@ -25,7 +26,7 @@ public class Citas {
 
 	public Citas(String nombre, String apellidos, int edad,
 			String email, int telefono, String sexo,
-			String box, String observaciones, String fecha) {
+			String box, String observaciones, String fecha,String DNI) {
 		super();
 		this.nombre = new SimpleStringProperty(nombre);
 		this.apellidos = new SimpleStringProperty(apellidos);
@@ -35,7 +36,8 @@ public class Citas {
 		this.sexo = new SimpleStringProperty(sexo);
 		this.box =new SimpleStringProperty(box);
 		this.observaciones = new SimpleStringProperty(observaciones);;
-		this.fecha = new SimpleStringProperty(fecha);;
+		this.fecha = new SimpleStringProperty(fecha);
+		this.DNI = new SimpleStringProperty(DNI);
 	}
 	
 
@@ -86,6 +88,10 @@ public class Citas {
 
 
 
+
+	public void setDNI(SimpleStringProperty dNI) {
+		DNI = dNI;
+	}
 
 	public void setBox(SimpleStringProperty box) {
 		this.box = box;
@@ -162,6 +168,14 @@ public class Citas {
     
     public void setFecha(String ffecha) {
        fecha.set(ffecha);
+    }
+    
+    public String getDNI() {
+        return DNI.get();
+    }
+    
+    public void setDNI(String DDNI) {
+       fecha.set(DDNI);
     }
     
 	public Integer getEdad() {

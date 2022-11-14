@@ -43,7 +43,7 @@ public class PracticaMain extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			
-			primaryStage.setTitle("Moisés Jiménez PracticaUnidades 1-2");
+			primaryStage.setTitle("Moisés Jiménez PracticaUnidad 3");
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();

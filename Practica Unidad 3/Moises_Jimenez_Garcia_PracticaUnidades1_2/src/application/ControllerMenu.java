@@ -1,6 +1,8 @@
 package application;
 
 import java.io.IOException;
+
+import UtilidadesMetodosComunes.Utilidades;
 import application.PracticaMain;
 import datos.ControllerDatos;
 import javafx.event.ActionEvent;
@@ -9,11 +11,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -31,6 +37,11 @@ public class ControllerMenu {
 			        
 	    @FXML
 	    private Button entrar;
+	    @FXML
+	    private PasswordField psw;
+
+	    @FXML
+	    private TextField usuario;
 
 	    
 	  @FXML
@@ -40,6 +51,7 @@ public class ControllerMenu {
 	  
 	    @FXML
 	    void iniciarSesion(ActionEvent event) {
+	    	if(usuario.getText().equals("usuario") && psw.getText().equals("usuario")) {
 	    	try {
 				// Carga el diseño del archivo FXML en la variable rootLayout
 				FXMLLoader loader = new FXMLLoader();
@@ -57,7 +69,7 @@ public class ControllerMenu {
 				stage.getIcons().add(image2);
 				stage.setScene(scene);
 				stage.setResizable(false);
-				stage.setTitle("Moisés Jiménez PracticaUnidades 1-2");
+				stage.setTitle("Moisés Jiménez PracticaUnidad 3");
 				stage.show();
 			
 				stage.setOnCloseRequest(e-> controllerMeu.cerrarVentana());
@@ -67,6 +79,10 @@ public class ControllerMenu {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+	    	}else {
+	    		 Alert alert = Utilidades.crearAlert(AlertType.ERROR, "ERROR", "Usuario o contraseña incorrectos","vuelva a intentarlo" );
+	       	  alert.showAndWait();
+	    	}
 		}
 	    
 	    void cerrarVentana() {
@@ -86,7 +102,7 @@ public class ControllerMenu {
 				stage.getIcons().add(image2);
 				stage.setScene(scene);
 				stage.setResizable(false);
-				stage.setTitle("Moisés Jiménez PracticaUnidades 1-2");
+				stage.setTitle("Moisés Jiménez PracticaUnidad 3");
 				stage.show();
 				//stage.showAndWait(); // deja ventana bloqueda
 				
