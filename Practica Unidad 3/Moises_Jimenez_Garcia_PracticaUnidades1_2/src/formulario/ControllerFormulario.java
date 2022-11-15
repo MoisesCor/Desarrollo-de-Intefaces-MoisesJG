@@ -1,5 +1,10 @@
 package formulario;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
 import UtilidadesMetodosComunes.Utilidades;
 import datos.Citas;
 import datos.ControllerDatos;
@@ -93,7 +98,7 @@ public class ControllerFormulario {
   }
   
   @FXML
-  private void guardarCita() {
+  private void guardarCita() throws NumberFormatException, ParseException {
 		
 		 if (validarDatos()) {
 		 	
@@ -106,9 +111,10 @@ public class ControllerFormulario {
 	    	 String obser=(formularioObservaciones.getText());
 	    	 String dni=(formularioDNI.getText());
 	    	 String boxx = box.getValue();
+	    	 String fecha=formularioFecha.getValue().toString();
 	    	 Integer tlf=(Integer.parseInt(formularioTelf.getText()));
 	    	 
-	    	 Citas cita= new Citas(nombre,apellido,edad,email,tlf,sexo,boxx,obser,"16/10/22",dni);
+	    	 Citas cita= new Citas(nombre,apellido,edad,email,tlf,sexo,boxx,obser,fecha,dni);
 	    	
 	    	if(ControllerDatos.nuevoCliente(cita)) {
 	    		Alert exito= Utilidades.crearAlert(AlertType.INFORMATION, "CONFIRMACIÓN", "Cita añadida", "correctamente");
@@ -130,7 +136,7 @@ public class ControllerFormulario {
       }
 
 
-private boolean validarDatos() {
+private boolean validarDatos() throws ParseException {
 	String camposFaltan="";
 	boolean error=false;
 	
@@ -154,6 +160,7 @@ private boolean validarDatos() {
 	}
 	if(formularioFecha.getValue()==null) {
 		camposFaltan+="Campo fecha sin intruducir\n";
+		
 		error=true;
 	}
 	if(formularioEdad.getText().trim()==null || formularioEdad.getText().length()==0) {

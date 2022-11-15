@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
@@ -42,11 +43,15 @@ public class ControllerMenu {
 
 	    @FXML
 	    private TextField usuario;
+	    
+	    @FXML
+	    private RadioMenuItem idpendientes;
+
 
 	    
 	  @FXML
 	    private void initialize() {
-	        
+		 
 	    }
 	  
 	    @FXML
@@ -165,6 +170,13 @@ public class ControllerMenu {
     
     @FXML
     void abrirPendientes(ActionEvent event) {
+    	
+    	 ;
+	    		// Más que capturar este evento, lo más común es cerrar 
+	    		// manualmente con el método "close" cuando es necesario
+	    		//System.out.println("Click a cerrar"); 
+	            
+	       
 		try {
 			// Cargamos el archivo Controles Dinámicos
 			FXMLLoader loader = new FXMLLoader();
