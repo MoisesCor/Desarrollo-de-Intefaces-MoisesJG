@@ -21,15 +21,20 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 public class ControllerFormulario {
-	private BorderPane rootLayout;
+	
 	
   @FXML
   private ComboBox<String> box;
   @FXML
   private Button deshacerBotonFormulario;
+  
+  @FXML
+  private Button guardarBotonFormulario;
   @FXML
   private TextField formularioApellido;
 
@@ -61,12 +66,35 @@ public class ControllerFormulario {
 
   @FXML
   private TextArea formularioObservaciones;
+  double dd;
+  
+  int contador=0;
   
  
   ;
 
   @FXML
   void initialize() {
+	  dd=deshacerBotonFormulario.getPrefHeight();
+	 
+	  /*A continuación 4 eventos de raton si pasa por encima del alguno de los botones aumentan su tamaño
+	   * si dejan de estar encima disminuye su tamaño*/
+	  deshacerBotonFormulario.setOnMouseEntered(deshacer->{
+		  deshacerBotonFormulario.setPrefHeight(70);
+	  });
+	  
+	  deshacerBotonFormulario.setOnMouseExited(deshacer->{
+		  deshacerBotonFormulario.setPrefHeight(dd);
+	  });
+	  
+	
+	  guardarBotonFormulario.setOnMouseEntered(deshacer->{
+		  guardarBotonFormulario.setPrefHeight(70);
+	  });
+	  
+	  guardarBotonFormulario.setOnMouseExited(deshacer->{
+		  guardarBotonFormulario.setPrefHeight(dd);
+	  });
 	  formularioDNI.requestFocus();
 	    	box.getItems().addAll("Box 1","Box 2","Box 3");
 	    	
@@ -94,6 +122,44 @@ public class ControllerFormulario {
     			
     		});
     	});
+	    
+	    /*Creamos evento para validar que introduce el usuario en los campos telefono y edad
+	     * con ello no permitimos que introduzca campos no numéricos*/
+	    formularioTelf.addEventFilter(KeyEvent.KEY_TYPED, (e) -> {				
+			System.out.println("Character teléfono: " + e.getCharacter());
+			if (Character.isLowerCase(e.getCharacter().charAt(0))) {
+				// Si descomenta esta línea entonces sí que se valida porque es el último evento que se genera
+				e.consume(); 
+				
+			}
+		});	
+	   
+	 // Se puede acceder al TextField con getEditor
+    	// Validación para solo introducir teclas de la A a la Z mayúscula
+	
+		// Manejador solo numeros y mayusculas
+	    formularioDNI.addEventHandler(KeyEvent.KEY_TYPED, (event) -> {
+    		int numberCode = (int) event.getCharacter().charAt(0);
+    		
+    		if (((numberCode < 65) || (numberCode > 90)) && Character.isLowerCase(event.getCharacter().charAt(0))) {
+    			System.out.println("ENTRAAAAAAA");
+    			event.consume();
+    			Alert alert= Utilidades.crearAlert(AlertType.ERROR, "Error", "Solo números y letras mayusculas", "intentalo");
+    			alert.showAndWait();
+    		}
+    		});	
+    					
+		
+	    
+	    formularioEdad.addEventFilter(KeyEvent.KEY_TYPED, (e) -> {				
+			System.out.println("Character edad: " + e.getCharacter());
+			if (Character.isLowerCase(e.getCharacter().charAt(0))) {
+				// Si descomenta esta línea entonces sí que se valida porque es el último evento que se genera
+				System.out.println("eeee");
+				e.consume(); 
+			}
+		});	
+	    
 
   }
   
@@ -211,17 +277,24 @@ private boolean validarDatos() throws ParseException {
 void rellenarAutomatico(ActionEvent event) {
 	
 	Citas auux= ControllerDatos.autorellenoCliente(formularioDNI.getText().trim());
-	if(!auux.getNombre().equals(null)) {
+	if(!auux.getNombre().equals("")) {
 		formularioNombre.setText(auux.getNombre());
 		formularioApellido.setText(auux.getApellidos());
 		formularioEdad.setText(Integer.toString(auux.getEdad()));
 		formularioFecha.setValue(null);
-		formularioMujer.setSelected(false);
-		formularioHombre.setSelected(false);
+		if(auux.getSexo().equals("Hombre")) {
+			formularioHombre.setSelected(true);
+		}else {
+			formularioMujer.setSelected(true);
+		}
+		
 		formularioTelf.setText(Integer.toString(auux.getTelefono()));
 		formularioEmail.setText(auux.getEmail());
 		formularioObservaciones.setText("");
 		box.setValue(null);
+	}else {
+		Alert alert= Utilidades.crearAlert(AlertType.WARNING, "DNI NO REGISTRADO",formularioDNI.getText().trim() ,"incorrecto");
+		alert.showAndWait();
 	}
 }
 

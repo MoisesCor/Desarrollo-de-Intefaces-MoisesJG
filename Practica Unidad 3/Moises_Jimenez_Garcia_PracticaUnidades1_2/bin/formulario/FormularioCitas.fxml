@@ -81,7 +81,7 @@
       </TextArea>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <children>
-            <Button mnemonicParsing="false" onAction="#guardarCita" style="-fx-background-color: green;" text="Guardar" textFill="WHITE">
+            <Button fx:id="guardarBotonFormulario" mnemonicParsing="false" onAction="#guardarCita" style="-fx-background-color: green;" text="Guardar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

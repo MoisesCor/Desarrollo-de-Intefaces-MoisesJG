@@ -131,11 +131,11 @@
                                           </AnchorPane>
                                     </content>
                                   </TitledPane>
-                                  <TitledPane animated="false" text="Opción pedientes">
+                                  <TitledPane animated="false" onDragDetected="#mostrarPendientes" text="Opción pedientes">
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <Button mnemonicParsing="false" style="-fx-background-color: #0A97E0;" text="Pendientes">
+                                                <Button mnemonicParsing="false" onAction="#mostrarPendientes" style="-fx-background-color: #0A97E0;" text="Pendientes">
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
@@ -148,7 +148,7 @@
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                <Button mnemonicParsing="false" style="-fx-background-color: #0A97E0;" text="Acabadas">
+                                                <Button mnemonicParsing="false" onAction="#mostrarAcabadas" style="-fx-background-color: #0A97E0;" text="Acabadas">
                                                    <font>
                                                       <Font name="System Bold" size="12.0" />
                                                    </font>
@@ -229,7 +229,7 @@
                                           <Font name="System Bold Italic" size="17.0" />
                                        </font>
                                     </Label>
-                                    <ListView fx:id="lista" prefHeight="200.0" prefWidth="200.0" />
+                                    <ListView fx:id="lista" onMouseClicked="#mostrarDialogo" prefHeight="200.0" prefWidth="200.0" />
                                  </children>
                               </VBox>
                            </children>

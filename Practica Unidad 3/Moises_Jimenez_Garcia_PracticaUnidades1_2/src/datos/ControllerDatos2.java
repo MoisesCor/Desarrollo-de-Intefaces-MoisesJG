@@ -39,11 +39,9 @@ public class ControllerDatos2 {
     @FXML
     private  TextField telefonoLabel;
     
-    private BorderPane rootLayout;
     
     private Stage dialogStage; // esto es porque nos tenemos que crear una nueva ventana todas las ventanas son stage
     private Citas cita;
-   private ControllerDatos controllerdatos;
 
     @FXML
     void initialize() {

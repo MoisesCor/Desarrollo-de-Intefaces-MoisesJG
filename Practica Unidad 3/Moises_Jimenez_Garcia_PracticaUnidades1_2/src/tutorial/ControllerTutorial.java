@@ -2,20 +2,24 @@ package tutorial;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ListChangeListener.Change;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.control.cell.TextFieldTreeCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -26,12 +30,17 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import UtilidadesMetodosComunes.Utilidades;
 import application.ControllerMenu;
 import datos.Citas;
 import datos.ControllerDatos;
 import datos.ControllerDatos2;
 
 public class ControllerTutorial {
+	String resultado;
+
+    @FXML
+    private Button buttonid;
 
 	
 	 @FXML
@@ -66,6 +75,7 @@ public class ControllerTutorial {
 	        rootItem.setExpanded(true);
 	        treeCarpetas.setRoot(rootItem);
 	        
+	     
 	        
 	        //choice
 	        choice1.getItems().addAll("1 horas semana","2 horas semana","+ 2 horas semana");
@@ -75,10 +85,37 @@ public class ControllerTutorial {
 	        //Lista
 	        lista.setEditable(true);
 	        lista.getItems().addAll("Recomendarías la aplicación","Te facilita el trabajo","Funciona siempre bien","Es facil de usar","Te gusta el diseño");
-	        param.addAll("Siempre","Alguna vez","Nunca");
-	        lista.setCellFactory(ComboBoxListCell.forListView(param));
+	       // param.addAll("Siempre","Alguna vez","Nunca");
+	       // lista.setCellFactory(ComboBoxListCell.forListView(param));
+	        
+	    /*	lista.getSelectionModel().getSelectedItems().addListener((Change<? extends String> change) -> {
+	    		
+	    		  		    		
+	    	}); */
+	        lista.getSelectionModel().selectedItemProperty().addListener(
+	                (observable, oldValue, newValue) -> resultado=newValue);
 
 	    }
+	 
+	  @FXML
+	    void mostrarDialogo(MouseEvent event) {
+		 
+		  
+	    	ChoiceDialog<String> choiceDialog = new ChoiceDialog<String>("Siempre","Alguna vez","Nunca");
+	    	choiceDialog.initModality(Modality.APPLICATION_MODAL); 
+	    	choiceDialog.setTitle("Cuestionario");
+	    	choiceDialog.setHeaderText(resultado);
+						    	
+	    	choiceDialog.showAndWait().ifPresent(response -> {
+				// Limpiamos la selección actual y seleccionamos el ítem del combo
+	    		System.out.println(response);
+	    		lista.getSelectionModel().getSelectedIndex();
+	    		lista.getItems().set(lista.getSelectionModel().getSelectedIndex(),response);
+	    		
+	    		
+	    	});
+	    }
+	  
 	 
 	 
 	 //Métodos para hacer el link funcional, obtenido importando la clase desktop
@@ -133,80 +170,28 @@ public class ControllerTutorial {
 	    
 	    @FXML
 	    void mostrarFormulario(ActionEvent event) {
-	    	 try {
-		            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de diálogo emergente.
-		        	FXMLLoader loader = new FXMLLoader();
-					loader.setLocation(ControllerMenu.class.getResource("/formulario/FormularioCitas.fxml"));
-					GridPane page = (GridPane) loader.load();
-
-		            // Create the dialog Stage.
-		            Stage dialogStage = new Stage();
-		            dialogStage.setTitle("Consulta cliente");
-		            dialogStage.initModality(Modality.WINDOW_MODAL);
-		            Scene scene = new Scene(page);
-		            dialogStage.setScene(scene);
-		            
-		            // Show the dialog and wait until the user closes it
-		            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		           
-		        }
+	    	Utilidades.modalFormulario();
 	    }
 	    
 	    @FXML
+	    void mostrarAcabadas(ActionEvent event) {
+	    	ControllerMenu.cualPulsa="acabadas";
+	    	 Utilidades.mostrarPendiente();
+	    }
+	    @FXML
+	    void mostrarPendientes(ActionEvent event) {
+	    	ControllerMenu.cualPulsa="pendientes";
+	    	 Utilidades.mostrarPendiente();;
+	    }
+	    @FXML
 	    void mostrarCitas(ActionEvent event) {
-	    	 try {
-		            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de diálogo emergente.
-	    		 FXMLLoader loader = new FXMLLoader();
-	         	loader.setLocation(ControllerDatos.class.getResource("/datos/DatosCitas.fxml"));
-	 			SplitPane page= (SplitPane) loader.load();
-
-		            // Create the dialog Stage.
-		            Stage dialogStage = new Stage();
-		            dialogStage.setTitle("Consulta cliente");
-		            dialogStage.initModality(Modality.WINDOW_MODAL);
-		            Scene scene = new Scene(page);
-		            dialogStage.setScene(scene);
-		            
-		            // Show the dialog and wait until the user closes it
-		            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		           
-		        }
+	    	ControllerMenu.cualPulsa="pendientes";
+	    	 Utilidades.mostrarCita();
 	    }
 	    
+
 	    
-	    public boolean mostrar() {
-	    	
-	        try {
-	            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de diálogo emergente.
-	        	FXMLLoader loader = new FXMLLoader();
-				loader.setLocation(ControllerMenu.class.getResource("/formulario/FormularioCitas.fxml"));
-				GridPane page = (GridPane) loader.load();
-
-	            // Create the dialog Stage.
-	            Stage dialogStage = new Stage();
-	            dialogStage.setTitle("Consulta cliente");
-	            dialogStage.initModality(Modality.WINDOW_MODAL);
-	            Scene scene = new Scene(page);
-	            dialogStage.setScene(scene);
-	            
-
-	            // accedemos al controlador del dialogo y le pasamos a la persona para poder añadir.
-	         /*  ControllerDatos2 controller = loader.getController();
-	           controller.setDialogStage(dialogStage);// le paso la ventana que necesita el controlador
-	            controller.setCitas(cita,num);*/
-
-	            // Show the dialog and wait until the user closes it
-	            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
-
-	            return false;
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	            return false;
-	        }
-	    }
+	    
+	  
 
 }

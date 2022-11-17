@@ -77,10 +77,10 @@ public class ControllerDatos {
 	    
 	  
 	    public static ObservableList<Citas> datos = FXCollections.observableArrayList(
-    			new Citas("Moisés","Jiménez",30,"mois@gamil.com",66666666,"Hombre","box1","tendinitis","2022-12-10","1111S"),
-    			new Citas("Vanesa","Pérez",22,"vane@gamil.com",7777777,"Mujer","box2","Esguince","2022-10-10","2222T"),
-    			new Citas("Raquel","Solear",50,"raquel@gamil.com",555555555,"Mujer","box1","fractura","2022-10-10","3333V"),
-    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","box3","cuento","2022-10-10","OOOOR")
+    			new Citas("Moisés","Jiménez",30,"mois@gamil.com",66666666,"Hombre","Box1","tendinitis","2022-12-10","1111S"),
+    			new Citas("Vanesa","Pérez",22,"vane@gamil.com",7777777,"Mujer","Box2","Esguince","2022-10-10","2222T"),
+    			new Citas("Raquel","Solear",50,"raquel@gamil.com",555555555,"Mujer","Box1","fractura","2022-10-10","3333V"),
+    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","Box3","cuento","2022-10-10","OOOOR")
     			);
 	    
 		public ObservableList<Citas> getDatos() {
@@ -107,60 +107,12 @@ public class ControllerDatos {
 	        // Se rellena la tabla con objetos de la clase Citas
 	        tablaDatos.setItems(datos);
 	        
-	        tablaDatos.getSelectionModel().selectedItemProperty().addListener(
-	                (observable, oldValue, newValue) -> showPersonDetails(newValue));
-	        
-	        
 
 	    }
 	    
-	    private void showPersonDetails(Citas cita) {
-	    	 try {
-		            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de diálogo emergente.
-		            FXMLLoader loader = new FXMLLoader();
-		            loader.setLocation(ControllerDatos.class.getResource("DatosCitas2.fxml"));
-		            AnchorPane page = (AnchorPane) loader.load();
-		            System.out.println("entra");
-
-		            // Create the dialog Stage.
-		            Stage dialogStage = new Stage();
-		            dialogStage.setTitle("Consulta cliente");
-		            dialogStage.initModality(Modality.WINDOW_MODAL);
-		            Scene scene = new Scene(page);
-		            dialogStage.setScene(scene);
-		            
-
-		          
-
-		            // Show the dialog and wait until the user closes it
-		            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
-
-		            
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		            
-		        }
-	    }
+	   
 	    	
-	      /*  if (person != null) {
-	            // Rellene las etiquetas con información del objeto persona.
-	            firstNameLabel.setText(person.getFirstName());
-	            lastNameLabel.setText(person.getLastName());
-	            streetLabel.setText(person.getStreet());
-	            postalCodeLabel.setText(Integer.toString(person.getPostalCode()));// debemos pasar todo a String
-	            cityLabel.setText(person.getCity());
-
-	            birthdayLabel.setText(DateUtil.format(person.getBirthday()));
-	        } else {
-	            // si la persona no existe la deja vacía.
-	            firstNameLabel.setText("");
-	            lastNameLabel.setText("");
-	            streetLabel.setText("");
-	            postalCodeLabel.setText("");
-	            cityLabel.setText("");
-	            birthdayLabel.setText("");
-	        }*/
-	   // }
+	    
 	    
 	    /*Método para insetar nueva cita*/
 	    public static boolean nuevoCliente(Citas cita) {
@@ -175,17 +127,7 @@ public class ControllerDatos {
 		
 	    }
 	    
-	    public static boolean editarCliente(Citas cita) {
-	    	try {
-				datos.add(cita);
-			return true;
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			}
-		
-	    }
+
 	    
 	    public static Citas verificarCliente( String dni) {
 	    	Citas citaaux=null;
@@ -211,13 +153,17 @@ public class ControllerDatos {
 	    
 	    public static Citas autorellenoCliente( String dni) {
 	    	Citas citaaux= new Citas();
+	    	boolean ok=false;
 	    	
 	    		for(Citas aux: datos) {
 	    		
 	    			if(aux.getDNI().equals(dni)) {
 	    				citaaux= aux;
-	    				//valor=aux.getNombre();
+	    				ok=true;
 	    			}
+	    		}
+	    		if(ok==false) {
+	    			citaaux= new Citas("","",0,"",0,"","","","","");
 	    		}
 	    		
 			return citaaux;
@@ -260,7 +206,7 @@ public class ControllerDatos {
 	            // Create the dialog Stage.
 	            Stage dialogStage = new Stage();
 	            dialogStage.setTitle("Consulta cliente");
-	            dialogStage.initModality(Modality.WINDOW_MODAL);
+	            dialogStage.initModality(Modality.APPLICATION_MODAL);
 	            Scene scene = new Scene(page);
 	            dialogStage.setScene(scene);
 	            
@@ -278,6 +224,14 @@ public class ControllerDatos {
 	            e.printStackTrace();
 	            return false;
 	        }
+	    }
+	    
+	    
+	    public static void borrarCita(Citas borrar) {
+	    	System.out.println("entra wn borraR "+borrar.getEmail());
+	    	
+	    	datos.remove(borrar);
+	    	
 	    }
 	    
 	    

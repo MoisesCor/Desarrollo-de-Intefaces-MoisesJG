@@ -25,11 +25,11 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Agenda">
             <items>
-                  <RadioMenuItem mnemonicParsing="false" onAction="#abrirPendientes" text="Pendientes">
+                  <RadioMenuItem fx:id="idpendientes" mnemonicParsing="false" onAction="#abrirPendientes" text="Pendientes">
                      <toggleGroup>
                         <ToggleGroup fx:id="agendaSelec" />
                      </toggleGroup></RadioMenuItem>
-                  <RadioMenuItem mnemonicParsing="false" onAction="#abrirPendientes" text="Acabadas" toggleGroup="$agendaSelec" />
+                  <RadioMenuItem fx:id="idacabadas" mnemonicParsing="false" onAction="#abrirPendientes" text="Acabadas" toggleGroup="$agendaSelec" />
                   <RadioMenuItem mnemonicParsing="false" onAction="#abrirTodasLasCitas" text="Todas" toggleGroup="$agendaSelec" />
             </items>
           </Menu>
@@ -50,7 +50,7 @@
                   <Font name="Imprint MT Shadow" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="198.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgLogo" fitHeight="198.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@pngwing.com.png" />
                </image>

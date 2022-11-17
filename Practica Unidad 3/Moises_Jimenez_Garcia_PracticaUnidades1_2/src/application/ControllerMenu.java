@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioMenuItem;
@@ -23,17 +24,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class ControllerMenu {
 	// Pantalla principal en la que se añade o quita contenido
 		private BorderPane rootLayout;
-		private GridPane rootLayout2;
 		Image image2 = new Image(getClass(). getResourceAsStream("pngwing.com.png"));
 			        
 	    @FXML
@@ -46,84 +48,54 @@ public class ControllerMenu {
 	    
 	    @FXML
 	    private RadioMenuItem idpendientes;
+	    
+
+	    @FXML
+	    private RadioMenuItem idacabadas;
+	    
+	    
+	   public static String cualPulsa;
+	    
+	    PracticaMain main;
 
 
 	    
 	  @FXML
 	    private void initialize() {
-		 
+		
+ 
 	    }
 	  
+	    public void setMain(PracticaMain main) {
+	        this.main = main;
+	        
+	    }
+	    
+	    String cadenaOpcion="";
+	  
+	  
+	  /* Inicio de sesión donde si el usuario pulsa entrar valida que los campos usuario contraseña son correctos
+	   * Si son correctos, abre la siguiente ventana y cierra la actual. De lo contrario abre un modal de error
+	   * llamando al método utilidades donde he generado métodos comunes para comodidad
+	   * si el usuario cierra la ventana vuelve abrir la de login, llamando a esa misma ventana
+	   * gracias a la referenci al main creada*/
 	    @FXML
 	    void iniciarSesion(ActionEvent event) {
 	    	if(usuario.getText().equals("usuario") && psw.getText().equals("usuario")) {
-	    	try {
-				// Carga el diseño del archivo FXML en la variable rootLayout
-				FXMLLoader loader = new FXMLLoader();
-				loader.setLocation(PracticaMain.class.getResource("Menu.fxml"));
-				rootLayout = (BorderPane) loader.load();
-			
-				
-				// Pasamos al controlador de menu el objeto con el BorderPane principal
-				ControllerMenu controllerMeu = loader.getController();
-				controllerMeu.setRootLayout(rootLayout);
-
-				// Mostramos la escena del BorderPane de la variable rootLayot
-				Scene scene = new Scene(rootLayout);
-				Stage stage= new Stage();
-				stage.getIcons().add(image2);
-				stage.setScene(scene);
-				stage.setResizable(false);
-				stage.setTitle("Moisés Jiménez PracticaUnidad 3");
-				stage.show();
-			
-				stage.setOnCloseRequest(e-> controllerMeu.cerrarVentana());
-				
-				Stage ventana =(Stage) this.entrar.getScene().getWindow();
+	    		main.abrirGeneral();
+	    		Stage ventana =(Stage) this.entrar.getScene().getWindow();
 				ventana.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 	    	}else {
 	    		 Alert alert = Utilidades.crearAlert(AlertType.ERROR, "ERROR", "Usuario o contraseña incorrectos","vuelva a intentarlo" );
 	       	  alert.showAndWait();
 	    	}
 		}
 	    
-	    void cerrarVentana() {
-	    	
-	    	try {
-				// Carga el diseño del archivo FXML en la variable rootLayout
-	    		FXMLLoader loader2 = new FXMLLoader();
-				loader2.setLocation(PracticaMain.class.getResource("InicioSesion.fxml"));
-			
-				rootLayout2 = (GridPane) loader2.load();
-				
-				
-
-				// Mostramos la escena del BorderPane de la variable rootLayot
-				Scene scene = new Scene(rootLayout2);
-				Stage stage= new Stage();
-				stage.getIcons().add(image2);
-				stage.setScene(scene);
-				stage.setResizable(false);
-				stage.setTitle("Moisés Jiménez PracticaUnidad 3");
-				stage.show();
-				//stage.showAndWait(); // deja ventana bloqueda
-				
-				
-				Stage ventana =(Stage) entrar.getScene().getWindow();
-				ventana.close();
-			
-			} catch (Exception e) {
-				
-			}
-		}
-	    	
 	    
-	
+	    
 	@FXML
 	void abrirFormulario(ActionEvent event) {
+		
 		try {
 			// Cargamos el archivo Controles Dinámicos
 			FXMLLoader loader = new FXMLLoader();
@@ -155,7 +127,6 @@ public class ControllerMenu {
 	}
     @FXML
     void abrirTodasLasCitas(ActionEvent event) {
-    	
     	try {
     		FXMLLoader loader = new FXMLLoader();
         	loader.setLocation(ControllerDatos.class.getResource("/datos/DatosCitas.fxml"));
@@ -171,16 +142,17 @@ public class ControllerMenu {
     @FXML
     void abrirPendientes(ActionEvent event) {
     	
-    	 ;
-	    		// Más que capturar este evento, lo más común es cerrar 
-	    		// manualmente con el método "close" cuando es necesario
-	    		//System.out.println("Click a cerrar"); 
-	            
-	       
-		try {
+    	if(idpendientes.isSelected()) {
+    		
+    		ControllerMenu.cualPulsa="pendientes";
+    	}else if(idacabadas.isSelected()) {
+    		
+    		ControllerMenu.cualPulsa="acabadas";
+    	}
+    	try {
 			// Cargamos el archivo Controles Dinámicos
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(ControllerMenu.class.getResource("/datos/Proceso.fxml"));
+			loader.setLocation(PracticaMain.class.getResource("/datos/Proceso.fxml"));
 			AnchorPane pendiente = (AnchorPane) loader.load();
 
 			// Se sitúa en el centro del diseño principal
@@ -188,22 +160,33 @@ public class ControllerMenu {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+    	
+    	
 
 	    }
     
+    public static String cualPulsaUsuario() {
+    	
+		return cualPulsa;
+    	
+    }
+    
     @FXML
     void abrirTutorial(ActionEvent event) {
-    	
-		try {
+  	 
+    	try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(ControllerMenu.class.getResource("/tutorial/Tutorial.fxml"));
+			loader.setLocation(PracticaMain.class.getResource("/tutorial/Tutorial.fxml"));
 			TabPane tutorial=(TabPane) loader.load();
 			rootLayout.setCenter(tutorial);
+			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
+    
 		
 		
 	    
