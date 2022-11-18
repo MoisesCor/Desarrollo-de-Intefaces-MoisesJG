@@ -9,7 +9,9 @@ import datos.ControllerDatos2;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TabPane;
@@ -19,6 +21,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -29,6 +32,8 @@ public class PracticaMain extends Application {
 	//private BorderPane rootLayout;	
 	private GridPane rootLayout2;
 	private BorderPane rootLayout;
+	  @FXML
+	    private VBox vboxMovimiento;
 	Image image1 = new Image(getClass(). getResourceAsStream("pngwing.com.png"));
 	Image image2 = new Image(getClass(). getResourceAsStream("pngwing.com.png"));
 
@@ -40,15 +45,13 @@ public class PracticaMain extends Application {
 		
 	}
 
-
+	/*En el main en este caso me he creado las dos ventanas principales de la aplicación
+	 * para tener manejo de ellas solo istanciando el main*/
 	public void iniciPrincipal() {
 		try {
 			// Carga el diseño del archivo FXML en la variable rootLayout
-			//FXMLLoader loader = new FXMLLoader();
 			FXMLLoader loader2 = new FXMLLoader();
-			//loader.setLocation(PracticaMain.class.getResource("Menu.fxml"));
 			loader2.setLocation(PracticaMain.class.getResource("InicioSesion.fxml"));
-			//rootLayout = (BorderPane) loader.load();
 			rootLayout2 = (GridPane) loader2.load();
 			
 			ControllerMenu controller =  loader2.getController();
@@ -59,6 +62,7 @@ public class PracticaMain extends Application {
 			primaryStage.getIcons().add(image1);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
+			/*Manejador de ratón sobre la escena iniciar sesión muestra el valor de donde pulsa*/
 			scene.setOnMouseClicked(
 			        new EventHandler<MouseEvent>() {
 
@@ -67,7 +71,7 @@ public class PracticaMain extends Application {
 			           System.out.println(event.getPickResult());
 			            }
 			          });
-		//	primaryStage.setTitle("Moisés Jiménez PracticaUnidad 3");
+			primaryStage.setTitle("Moisés Jiménez PracticaUnidad 3");
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,11 +86,12 @@ public class PracticaMain extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(PracticaMain.class.getResource("Menu.fxml"));
 			rootLayout = (BorderPane) loader.load();
-		
 			
 		// Pasamos al controlador de menu el objeto con el BorderPane principal
 			ControllerMenu controllerMeu = loader.getController();
 			controllerMeu.setRootLayout(rootLayout);
+			
+			;
 
 			// Mostramos la escena del BorderPane de la variable rootLayot
 			Scene scene = new Scene(rootLayout);
@@ -97,7 +102,8 @@ public class PracticaMain extends Application {
 			stage.setTitle("Moisés Jiménez PracticaUnidad 3");
 			stage.show();
 			
-			//Atajos de teclado
+			/*Eventos de teclado creados en la escena general para poder acceder a dos ventanas de la aplicación según
+			 * donde mantenga pulsado*/
 			scene.setOnKeyReleased((KeyEvent keyEvent) -> {
 			    System.out.println(" -> " + keyEvent.getCode().toString( )); //traza
 			    if(keyEvent.isControlDown()) {

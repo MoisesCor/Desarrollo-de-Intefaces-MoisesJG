@@ -1,16 +1,16 @@
 package datos;
 
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.ControllerMenu;
+
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.scene.control.Label;
-import javafx.scene.control.SplitPane;
+
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+
 import javafx.stage.Stage;
 
 public class ControllerDatos2 {
@@ -40,7 +40,7 @@ public class ControllerDatos2 {
     private  TextField telefonoLabel;
     
     
-    private Stage dialogStage; // esto es porque nos tenemos que crear una nueva ventana todas las ventanas son stage
+    private Stage dialogStage; // para poder recibir la ventana que necesita
     private Citas cita;
 
     @FXML
@@ -53,6 +53,14 @@ public class ControllerDatos2 {
         this.dialogStage = dialogStage;
     }
     
+    /*Metodo que es llamado desde controllerDatos que es el que tiene toda la información de las citas/clintes
+     * central. El cual manda los datos que este controlador necesita para poder mostrarlos en su escena
+     * en este caso un modal que nos permite una consulta rápida a la información y generar una cita de ese cliente
+     * automática
+     * En este caso a los campos de la venta les da el valor de la cita correspondiente
+     * el cual previamente ha sido filtrado por el método buscar
+     * Recogemos el valor de esa cita/cliente en nuestra variable cita
+     * para poder usarla en  método citarDefecto de esta clase*/
     public void setCitas(Citas cita, int num) {
     	this.cita=cita;
     	nombreLabel.setText(cita.getNombre());
@@ -70,16 +78,15 @@ public class ControllerDatos2 {
     }
     
     @FXML
+    /*Al pulsar a citar añade a la lista general una nueva cita que es la que este propio controlador tiene
+     * guardada en su variable cita, esa variable siempre que se busque un cliente se sobreescribe con los datos actuales
+     * 
+     *  */
     private void citarDefecto() {
        ControllerDatos.nuevoCliente(cita);
        dialogStage.close();
     }
     
-    @FXML
-    private void editarPaciente() {
-       ControllerDatos.nuevoCliente(cita);
-       dialogStage.close();
-    }
     
   
 

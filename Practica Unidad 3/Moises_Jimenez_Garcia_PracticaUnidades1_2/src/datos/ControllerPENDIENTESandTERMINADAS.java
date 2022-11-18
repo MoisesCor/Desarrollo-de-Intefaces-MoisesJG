@@ -65,12 +65,12 @@ public class ControllerPENDIENTESandTERMINADAS {
         boxTab.setCellValueFactory(new PropertyValueFactory<Citas,String>("box"));
         fechTab.setCellValueFactory(new PropertyValueFactory<Citas,String>("fecha"));
         dniTab.setCellValueFactory(new PropertyValueFactory<Citas,String>("DNI"));
-        
+        //la tabla se carga con los valores de la general filtrados por este filtro según necesidad
         tablaPendiID.setItems(cargarDatos());
         okk=true;
-        // evento de ratón si usuario pulsa sobre un campo de la tabla abre el modal
+        // listener de ratón si usuario hace click sobre un campo de la tabla abre el modal
         tablaPendiID.setOnMouseClicked(event -> mostrarVentana(cita));
-        // evento de selección si el usuario selecciona un elemento de la tabla se le da ese valor a la cita 
+        // listener de selección si el usuario selecciona un elemento de la tabla se le da ese valor a la cita 
         tablaPendiID.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
                 	cita=newValue;
@@ -82,14 +82,37 @@ public class ControllerPENDIENTESandTERMINADAS {
     
 
     }
-    
-    public void refreshTabla(String opcion) {
-    	
+    /*Método que se encarga de actualizar la tabla comprobando en que boton fue pulsado
+     *  si borrar o editar, si es EDITAR comprueba que tabla esta seleccionada si 
+     *  acabadas o pendientes, y comprueba en cada caso si la fecha ha sido modificada
+     *  si la fecha en acabadas es modificada a una fecha mayor esta sera borrada de la tabla
+     *  y se vuelve a cargar los datos, en el caso contrario pasa lo mismo pero si la fecha es superior
+     * */
+    public void refreshTabla(String opcion, String fecha) {
+    	String cualEntra=ControllerMenu.cualPulsaUsuario();
+    	// recogemos el index de la selección actual y lo borramos de la tabla
+    	int selectedIndex = this.tablaPendiID.getSelectionModel().getSelectedIndex(); 
     	if(opcion.equals("Editar")) {
-    		cargarDatos();
+    		if(cualEntra.equals("pendientes")) {
+    			if(calcularFechaPendientes(fecha)) {
+    	    		cargarDatos();
+    			}else {
+    				tablaPendiID.getItems().remove(selectedIndex);
+    	    		cargarDatos();
+    			}
+    		}else if(cualEntra.equals("acabadas")) {
+    			if(!calcularFechaPendientes(fecha)) {
+    	    		cargarDatos();
+    			}else {
+    				tablaPendiID.getItems().remove(selectedIndex);
+    	    		cargarDatos();
+    			}
+    		}
+    		
     		this.tablaPendiID.refresh();
+    		cargarDatos();
     	}else if(opcion.equals("Borrar")) {
-    		int selectedIndex = this.tablaPendiID.getSelectionModel().getSelectedIndex(); 	
+    		
         	tablaPendiID.getItems().remove(selectedIndex);
     	}
     	
@@ -97,6 +120,9 @@ public class ControllerPENDIENTESandTERMINADAS {
     	
     }
     
+    /*Metodo cargar datos filtrando los datos de la general que tiene un observable que será adjudicado a la tabla
+     * con el filtro correspondiente  donde según que pestaña este el usuario carga unos u otros
+     * para ser mostrados esto devuelve una lista, si no hay elementos que cumplan las condiciones devuelve la tabla vacía*/
     public ObservableList<Citas> cargarDatos() {
     	;
     	String cualEntra=ControllerMenu.cualPulsaUsuario();
@@ -118,10 +144,9 @@ public class ControllerPENDIENTESandTERMINADAS {
     	}
 		return ok==true?datospendientes:null;
 
-}
+}	/*Método usado para devolver si la fecha consultada es despés que la actual*/
     public boolean calcularFechaPendientes(String fecha) {
 	      DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	      // parsing the string to convert it into date
 	      LocalDate local_date = LocalDate.parse(fecha, JEFormatter);
 	      
 	      return local_date.isAfter(LocalDate.now())?true:false;
@@ -129,7 +154,7 @@ public class ControllerPENDIENTESandTERMINADAS {
 	  
     	
     }
-    
+    // método llamado desde listener para que abra el modal si hay una celsa seleccionada
     private void mostrarVentana(Citas cita) {
     	
    	 try {

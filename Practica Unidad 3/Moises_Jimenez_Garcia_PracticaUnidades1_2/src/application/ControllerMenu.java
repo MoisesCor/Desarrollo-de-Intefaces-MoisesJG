@@ -25,6 +25,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -40,6 +41,7 @@ public class ControllerMenu {
 			        
 	    @FXML
 	    private Button entrar;
+	
 	    @FXML
 	    private PasswordField psw;
 
@@ -62,7 +64,7 @@ public class ControllerMenu {
 	    
 	  @FXML
 	    private void initialize() {
-		
+		 
  
 	    }
 	  
@@ -72,16 +74,18 @@ public class ControllerMenu {
 	    }
 	    
 	    String cadenaOpcion="";
+	    Utilidades util;
 	  
 	  
 	  /* Inicio de sesión donde si el usuario pulsa entrar valida que los campos usuario contraseña son correctos
-	   * Si son correctos, abre la siguiente ventana y cierra la actual. De lo contrario abre un modal de error
+	   * Si son correctos, abre modal de ANTES DE EMPEZAR,al hacer ok cierra esa y la del usuario. De lo contrario abre un modal de error
 	   * llamando al método utilidades donde he generado métodos comunes para comodidad
 	   * si el usuario cierra la ventana vuelve abrir la de login, llamando a esa misma ventana
 	   * gracias a la referenci al main creada*/
 	    @FXML
 	    void iniciarSesion(ActionEvent event) {
 	    	if(usuario.getText().equals("usuario") && psw.getText().equals("usuario")) {
+	    		antesEmpeza();
 	    		main.abrirGeneral();
 	    		Stage ventana =(Stage) this.entrar.getScene().getWindow();
 				ventana.close();
@@ -111,10 +115,11 @@ public class ControllerMenu {
 	    }
 	
 	@FXML
+	/*Ventana creada manualmente para probar funcionalidad, al salir queda esta ventana en la central*/
 	   private void cerrarListado(ActionEvent event) throws IOException { 
+		main.abrirGeneral();
 		Image image1 = new Image(getClass(). getResourceAsStream("pngwing.com.png"));
-		ImageView imag= new ImageView(image1);
-		
+		ImageView imag= new ImageView(image1);	
 		imag.setFitHeight(198);
 		imag.setFitWidth(300);	
 		 VBox vbox=new VBox();
@@ -165,6 +170,11 @@ public class ControllerMenu {
 
 	    }
     
+    /*Método que devuelve el valor de la selección del menu CITAS devuelve
+     * acabadas o pendientes, es llamado desde /datos/ControllerPENDIENTESandTERMINADAS.java
+     * para filtrar que datos han de cargar en la tabla
+     * El valor de lo que retorna cambia en esta propia clase en el método de abrirPendientes
+     * donde verificamos que opción tiene seleccionada*/
     public static String cualPulsaUsuario() {
     	
 		return cualPulsa;
@@ -187,7 +197,10 @@ public class ControllerMenu {
 		}
     }
     
-		
+    //Llamada al modal de la clase Utilidades antes de empezar
+		public void antesEmpeza() {
+			Utilidades.modalPaginator();
+		}
 		
 	    
 	
@@ -198,5 +211,9 @@ public class ControllerMenu {
 		// Necesario para poder cargar la escena
 	public void setRootLayout(BorderPane rootLayout) {
 		this.rootLayout = rootLayout;
-	}	
+	}
+	
+	
+	
+	
 }

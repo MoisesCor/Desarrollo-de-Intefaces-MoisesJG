@@ -123,7 +123,7 @@ public class ControllerFormulario {
     		});
     	});
 	    
-	    /*Creamos evento para validar que introduce el usuario en los campos telefono y edad
+	    /*Creamos FILTRO para validar que introduce el usuario en los campos telefono y edad
 	     * con ello no permitimos que introduzca campos no numéricos*/
 	    formularioTelf.addEventFilter(KeyEvent.KEY_TYPED, (e) -> {				
 			System.out.println("Character teléfono: " + e.getCharacter());
@@ -134,8 +134,6 @@ public class ControllerFormulario {
 			}
 		});	
 	   
-	 // Se puede acceder al TextField con getEditor
-    	// Validación para solo introducir teclas de la A a la Z mayúscula
 	
 		// Manejador solo numeros y mayusculas
 	    formularioDNI.addEventHandler(KeyEvent.KEY_TYPED, (event) -> {
@@ -150,12 +148,11 @@ public class ControllerFormulario {
     		});	
     					
 		
-	    
+	    //Filtro solo números
 	    formularioEdad.addEventFilter(KeyEvent.KEY_TYPED, (e) -> {				
 			System.out.println("Character edad: " + e.getCharacter());
 			if (Character.isLowerCase(e.getCharacter().charAt(0))) {
-				// Si descomenta esta línea entonces sí que se valida porque es el último evento que se genera
-				System.out.println("eeee");
+				System.out.println("traza "+e);
 				e.consume(); 
 			}
 		});	
@@ -164,6 +161,9 @@ public class ControllerFormulario {
   }
   
   @FXML
+  /*Método que una vez validados los datos crea una nueva cita y llama al metodo de ese controlador
+   * e introduce la cita, genera un modal de información avisando que ha sido correctamente y vuelve a poner
+   * todos los campos a null*/
   private void guardarCita() throws NumberFormatException, ParseException {
 		
 		 if (validarDatos()) {
@@ -201,7 +201,7 @@ public class ControllerFormulario {
 	     } 
       }
 
-
+/*Método validar datos a continuación se explicara dentro del propio método el que considero más enrevesado:*/
 private boolean validarDatos() throws ParseException {
 	String camposFaltan="";
 	boolean error=false;
@@ -245,10 +245,13 @@ private boolean validarDatos() throws ParseException {
 		camposFaltan+="box sin intruducir\n";
 		error=true;
 	}
+	/*Nos creamos un objeto cliente a partir del DNI introduccido por usuario*/
 	Citas cliente= ControllerDatos.verificarCliente(formularioDNI.getText().trim());
-
+	// Comprobamos que no se haya cometido errores, y que el nombre del cliente del objeto no sea vacío
 	if(error==false && !cliente.getNombre().equals("vacio")) {
-		
+		/*Una vez comprobado y pasado el filtro, ahora si el nombre introduccido por el usuario
+		 * es diferente al que  que tiene el cliente de la nueva cita
+		 * si es diferente es un error ya que hemos filtrado por DNI y el nombre de esa persona debe coincidir con su DNI*/
 		if(!cliente.getNombre().equals(formularioNombre.getText().trim())) {
 			
 			camposFaltan="El DNI introducido ya esta adjudicado a otro paciente (Debe coincidir el nombre con el dni)\n";
@@ -274,9 +277,12 @@ private boolean validarDatos() throws ParseException {
 }
 
 @FXML
+/*Evento asociado al campo DNI el usuario puede introducir un dni al pulsar intro
+ * en ese campo se comprueba si pertenece a algún cliente si es así autorrellena los campos
+ * con la información de ese cliente*/
 void rellenarAutomatico(ActionEvent event) {
 	
-	Citas auux= ControllerDatos.autorellenoCliente(formularioDNI.getText().trim());
+	Citas auux= ControllerDatos.verificarCliente(formularioDNI.getText().trim());
 	if(!auux.getNombre().equals("")) {
 		formularioNombre.setText(auux.getNombre());
 		formularioApellido.setText(auux.getApellidos());

@@ -26,8 +26,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ControllerDatos {
-	  private PracticaMain mainApp;
-
 
 	  @FXML
 	    private ResourceBundle resources;
@@ -114,7 +112,12 @@ public class ControllerDatos {
 	    	
 	    
 	    
-	    /*Método para insetar nueva cita*/
+	    /*Método para insetar nueva cita/cliente
+	     * es llamado desde los diferentes controladores que se encargan de crear nuevas citas
+	     * se pasa por parametro la cita y esta es añadida al observable principal
+	     * del que la clase /datos/ControllerPENDIENTESandTERMINADAS.java
+	     * se nutre para poder cargar los datos en su propia tabla dando el valor de su observable
+	     * el de esta clase */
 	    public static boolean nuevoCliente(Citas cita) {
 	    	try {
 				datos.add(cita);
@@ -128,7 +131,10 @@ public class ControllerDatos {
 	    }
 	    
 
-	    
+	    /* Clase  que es llamada desde ControllerFormulario
+	     * donde si el dni que ha escrito el usuario coincide con alguno que este en la lista
+	     *  retorna esa cita para luego bien validar si el dni corresponde con la persona indicada
+	     *  o para autorrellenar el formulario*/
 	    public static Citas verificarCliente( String dni) {
 	    	Citas citaaux=null;
 	    	boolean ok=false;
@@ -138,7 +144,6 @@ public class ControllerDatos {
 	    			if(aux.getDNI().equals(dni)) {
 	    				citaaux=aux;
 	    				ok=true;
-	    				//valor=aux.getNombre();
 	    			}
 	    		}
 	    		if(ok) {
@@ -151,29 +156,14 @@ public class ControllerDatos {
 		
 	    }
 	    
-	    public static Citas autorellenoCliente( String dni) {
-	    	Citas citaaux= new Citas();
-	    	boolean ok=false;
-	    	
-	    		for(Citas aux: datos) {
-	    		
-	    			if(aux.getDNI().equals(dni)) {
-	    				citaaux= aux;
-	    				ok=true;
-	    			}
-	    		}
-	    		if(ok==false) {
-	    			citaaux= new Citas("","",0,"",0,"","","","","");
-	    		}
-	    		
-			return citaaux;
-		
-		
-	    }
-	    
-	    
-	    
-   @FXML
+  
+	    /*Método que se encarga de realizar la busqueda del cliente introducido
+	     * y se encarfa de contar cuantas veces aparece en la lista para mostrar
+	     * al usuario cuantas citas tiene, si no aparece ninguna vez en la lista
+	     * abrirá un alert indicando que ese dni no esta registrado
+	     * pero si existe abrira un modal personalizado haciendo la llamada a su método que esta en esta propia clase
+	     * al cual le pasa el cliente buscado, y las veces que aparece*/
+	    @FXML
 	    void buscarContacto(ActionEvent event) {
 	    	 cita1 = new Citas ();
 	    	int contador=0;
@@ -193,7 +183,10 @@ public class ControllerDatos {
 	    		alert.showAndWait();
 	   }
    }
-	    
+	    /*modal información cliente
+	     * donde recibe por parametro la cita y el número de citas
+	     * llama a su propio controlador pasandole la escena y los propios datos 
+	     * que esta misma recibe del método Buscar*/
 	    public boolean mostrarDialoho(Citas cita, int num) {
 	    	System.out.println("entra");
 	        try {
@@ -211,12 +204,12 @@ public class ControllerDatos {
 	            dialogStage.setScene(scene);
 	            
 
-	            // accedemos al controlador del dialogo y le pasamos a la persona para poder añadir.
+	            // accedemos al controlador del dialogo y le pasamos a la persona para poder mostrarla.
 	           ControllerDatos2 controller = loader.getController();
 	           controller.setDialogStage(dialogStage);// le paso la ventana que necesita el controlador
-	            controller.setCitas(cita,num);
+	            controller.setCitas(cita,num);// paso de la infomación
 
-	            // Show the dialog and wait until the user closes it
+	          
 	            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
 
 	            return false;
@@ -228,7 +221,7 @@ public class ControllerDatos {
 	    
 	    
 	    public static void borrarCita(Citas borrar) {
-	    	System.out.println("entra wn borraR "+borrar.getEmail());
+	    	System.out.println("entra en borraR "+borrar.getEmail());
 	    	
 	    	datos.remove(borrar);
 	    	
