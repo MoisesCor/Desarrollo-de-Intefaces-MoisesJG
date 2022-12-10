@@ -4,13 +4,13 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.chart.StackedAreaChart?>
+<?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane maxHeight="1000.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="estadisticas.ControllerEstadisticas">
+<TabPane maxHeight="1000.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="estadisticas.ControllerEstadisticas">
   <tabs>
     <Tab text="Sexo mayoritario">
       <content>
@@ -26,7 +26,7 @@
                <children>
                   <VBox layoutX="-2.0" layoutY="1.0" prefHeight="320.0" prefWidth="600.0">
                      <children>
-                        <BarChart fx:id="barchartMESES" title="Año Actual">
+                        <BarChart fx:id="barchartMESES" legendSide="RIGHT" prefHeight="142.0" prefWidth="600.0" title="Año Actual">
                           <xAxis>
                             <CategoryAxis fx:id="AxisBarChart" side="BOTTOM" />
                           </xAxis>
@@ -34,14 +34,14 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
-                        <StackedAreaChart>
+                        <StackedBarChart fx:id="StackedBarChart" legendSide="RIGHT" title="Todos los años">
                           <xAxis>
-                            <NumberAxis side="BOTTOM" />
+                            <CategoryAxis side="BOTTOM" />
                           </xAxis>
                           <yAxis>
                             <NumberAxis side="LEFT" />
                           </yAxis>
-                        </StackedAreaChart>
+                        </StackedBarChart>
                      </children>
                   </VBox>
                </children></AnchorPane>
