@@ -55,6 +55,7 @@ public class PracticaMain extends Application {
 			
 			// Mostramos la escena del BorderPane de la variable rootLayot
 			Scene scene = new Scene(rootLayout2);
+			scene.getStylesheets().add("css/Login.css");
 			primaryStage.getIcons().add(image1);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
