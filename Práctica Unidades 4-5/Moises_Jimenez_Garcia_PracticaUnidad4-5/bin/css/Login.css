@@ -1,3 +1,82 @@
+
+@font-face {
+    
+    src: url('Caveat-VariableFont_wght.ttf');
+}
 .root {
     -fx-background-image: url('img4.jpg');
+    -fx-background-repeat:no-repeat;
+    -fx-font-family:'JetBrains Mono';
+    -fx-background-size: stretch;
+    -fx-base: mintcream;
+   
+}
+
+.label{
+	-fx-text-fill:white;
+}
+#ejemplo{
+	visibility:no;
+	-fx-text-fill:white;
+	-fx-font-weight:bold;
+	-fx-text-alignment:left;
+	-fx-border-color:red;
+	-fx-background-color:red;
+	-fx-border-width:3px;
+	-fx-border-radius:25px;
+	-fx-background-radius:25px;
+	-fx-pref-column-count:25;
+	
+}
+
+
+
+.text-field{
+	-fx-border-color:blue;
+	-fx-border-width:3px;
+	-fx-border-radius:25px;
+	-fx-background-radius:25px;
+	-fx-pref-column-count:25;
+}
+
+#usuarioLabel{
+	-fx-text-fill:black;
+	-fx-font-weight:bold;
+	-fx-halignment:center;
+	-fx-font-family: "Caveat";
+	
+	
+}
+#ejemplo:hover  {
+	visibility:yes;
+	-fx-background-color:yellow;
+}
+	
+	
+
+
+#pswLabel{
+	-fx-text-fill:black;
+	-fx-font-weight:bold;
+	-fx-halignment:center;
+	-fx-font-family: "Caveat";
+	
+	
+}
+.button{
+	-fx-background-color:red;
+	-fx-text-fill:white;
+	-fx-border-width:3px;
+	-fx-border-radius:25px;
+	-fx-background-radius:25px;
+	-fx-font-family: "Serif";
+
+}
+.button:hover{
+	-fx-background-color:yellow;
+	-fx-text-fill:red;
+}
+.button:pressed{
+	-fx-background-color:green;
+	-fx-text-fill:white;
 }

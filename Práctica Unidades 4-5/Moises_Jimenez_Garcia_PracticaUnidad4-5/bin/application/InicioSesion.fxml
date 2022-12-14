@@ -10,29 +10,24 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerMenu">
+<GridPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerMenu">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="137.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="263.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="147.80001220703124" />
+    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="255.1999877929687" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="37.0" valignment="BASELINE" />
+    <RowConstraints maxHeight="66.39999809265137" minHeight="10.0" prefHeight="62.399998092651366" valignment="CENTER" />
+    <RowConstraints maxHeight="57.19998779296875" minHeight="10.0" prefHeight="37.6" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="76.39999999999999" minHeight="10.0" prefHeight="38.400000000000006" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="51.800012207031244" minHeight="10.0" prefHeight="51.800012207031244" valignment="BASELINE" />
   </rowConstraints>
    <children>
-      <Label prefHeight="53.0" prefWidth="169.0" text="Acceso" GridPane.halignment="LEFT">
-         <font>
-            <Font name="System Bold" size="36.0" />
-         </font>
-      </Label>
-      <Label prefHeight="17.0" prefWidth="88.0" text="Usuario" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+      <Label fx:id="usuarioLabel" prefHeight="17.0" prefWidth="88.0" text="Usuario" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label prefHeight="34.0" prefWidth="122.0" text="Contraseña" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <Label fx:id="pswLabel" prefHeight="34.0" prefWidth="122.0" text="Contraseña" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
          <font>
             <Font size="23.0" />
          </font>
@@ -54,7 +49,10 @@
          <GridPane.margin>
             <Insets right="40.0" />
          </GridPane.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </PasswordField>
-      <Label prefHeight="17.0" prefWidth="222.0" text="Usuario: usuario  Contraseña: usuario" GridPane.columnIndex="1" />
+      <Label fx:id="ejemplo" prefHeight="17.0" prefWidth="222.0" text="Usuario: usuario  Contraseña: usuario" GridPane.columnIndex="1" />
    </children>
 </GridPane>
