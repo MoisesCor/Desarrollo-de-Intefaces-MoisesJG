@@ -50,7 +50,7 @@
    <center>
       <VBox fx:id="vboxMovimiento" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="     Carlos Herranz">
+            <Label id="fisio" text="     Carlos Herranz">
                <font>
                   <Font name="Imprint MT Shadow" size="24.0" />
                </font>

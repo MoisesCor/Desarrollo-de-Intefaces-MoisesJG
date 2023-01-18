@@ -155,6 +155,7 @@ public class ControllerMenu {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(PracticaMain.class.getResource("/datos/Proceso.fxml"));
 			AnchorPane pendiente = (AnchorPane) loader.load();
+			//desde aqui con el pendiente se carga el css de la misma forma que se hace con la escena
 
 			// Se sitúa en el centro del diseño principal
 			rootLayout.setCenter(pendiente);

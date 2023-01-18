@@ -1,0 +1,8 @@
+.image-view:hover{
+	-fx-scale-x:1.5;
+
+	
+}
+#fisio:hover{
+	-fx-rotate: 160;
+}
