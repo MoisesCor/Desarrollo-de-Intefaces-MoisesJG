@@ -101,6 +101,7 @@ public class ControllerMenu {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(ControllerMenu.class.getResource("/formulario/FormularioCitas.fxml"));
 			GridPane formularioCitas = (GridPane) loader.load();
+			formularioCitas.getStylesheets().add("css/formulario.css");
 
 			// Se sitúa en el centro del diseño principal
 			rootLayout.setCenter(formularioCitas);
@@ -132,6 +133,7 @@ public class ControllerMenu {
     		FXMLLoader loader = new FXMLLoader();
         	loader.setLocation(ControllerDatos.class.getResource("/datos/DatosCitas.fxml"));
 			SplitPane datosCitas= (SplitPane) loader.load();
+			datosCitas.getStylesheets().add("css/tables.css");
 			
 			rootLayout.setCenter(datosCitas);
 		} catch (IOException e) {

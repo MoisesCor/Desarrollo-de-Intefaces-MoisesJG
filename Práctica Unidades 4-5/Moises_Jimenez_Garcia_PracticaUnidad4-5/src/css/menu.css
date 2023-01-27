@@ -5,4 +5,59 @@
 }
 #fisio:hover{
 	-fx-rotate: 160;
+	-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
 }
+
+
+.root{
+	-fx-pref-width:700;
+	-fx-pref-height:400;
+}
+
+.menu-bar {
+    -fx-background-color: #C4E78D ;
+    -fx-opacity: 0.5;
+    -fx-border-width: 2.0;
+
+}
+.menu-bar .label {
+    -fx-font-size: 14.0 pt;
+    -fx-font-family: "Bookman Old Style";
+    -fx-text-fill: #013E94;
+    -fx-font-weight: bold; 
+    -fx-padding: 10.0px;
+    -fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
+
+}
+.menu-bar .menu-button:hover, .menu-bar .menu-button:focused, .menu-bar .menu-button:showing {
+    -fx-background: #018700 ;
+    -fx-opacity: 0.5;
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-padding: 0.0em 0.0em 0.0em 0.0em;
+    -fx-text-fill: black;
+    -fx-background: #018700 ;
+}
+.menu-item .label{
+    -fx-font-size: 14.0 pt;
+    -fx-text-fill: black;
+}
+.menu-item .label:hover{
+    -fx-font-size: 14.0 pt;
+    -fx-background: #018700 ;
+    -fx-text-fill: white;
+}
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-color:#00539C ;
+    -fx-border-width: 0.2px;
+    -fx-border-color: #018700;
+    }
+ #fisio{
+ 	-fx-text-fill: #00539C ;
+ 	-fx-font-family: "Imprint MT Shadow";
+ 	-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
+ } 
+  

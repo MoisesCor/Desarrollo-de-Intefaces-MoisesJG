@@ -45,6 +45,7 @@ public class Utilidades {
 	            dialogStage.setTitle("Consulta cliente");
 	            dialogStage.initModality(Modality.APPLICATION_MODAL);
 	            Scene scene = new Scene(page);
+	            scene.getStylesheets().add("css/formulario.css");
 	            dialogStage.setScene(scene);
 	            
 	            

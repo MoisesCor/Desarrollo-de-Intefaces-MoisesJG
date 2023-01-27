@@ -1,0 +1,64 @@
+
+
+.label{
+	-fx-font-family:"Broadway";
+	-fx-text-fill: black;
+	-fx-base: mintcream;
+	-fx-font-size: 10;
+	
+}
+
+GridPane{
+	-fx-pref-width:600;
+	-fx-pref-height:353;
+	-fx-background-color: skyblue , derive( #C4E78D, 25%);
+	-fx-background-insets: -10, 0;
+	-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
+}
+#hbox1{
+	-fx-pref-width:200;
+	-fx-pref-height:100;
+	-fx-spacing: 100;
+	
+	
+}
+.text-field{
+	-fx-border-width:3px;
+	-fx-border-radius:25px;
+	-fx-background-radius:25px;
+	-fx-pref-column-count:25;
+}
+
+#hbox2{
+	-fx-pref-width:200;
+	-fx-pref-height:100;
+	-fx-spacing: 20;
+}
+#hbox3{
+	-fx-pref-width:200;
+	-fx-pref-height:100;
+	-fx-spacing: 20;
+}
+#hbox4{
+	-fx-pref-width:200;
+	-fx-pref-height:100;
+	-fx-spacing: 10;
+}
+
+.combo-box{
+	-fx-border-width:3px;
+	-fx-border-radius:25px;
+}
+
+.combo-box .list-cell:filled:selected {
+    -fx-background-color: #08BFF9;
+  
+}
+/*Change cells of autocomplete popup*/
+.combo-box .list-cell:hover {
+    -fx-background-color: #5f68ff;
+}
+/*Change cells of combobox*/
+.combo-box .list-cell {
+    -fx-background-color: #FFF7BB;
+}

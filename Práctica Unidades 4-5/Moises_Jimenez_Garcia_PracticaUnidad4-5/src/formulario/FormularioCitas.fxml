@@ -18,7 +18,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="formulario.ControllerFormulario">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="formulario.ControllerFormulario">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="86.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="521.0" minWidth="10.0" prefWidth="514.0" />
@@ -38,6 +38,9 @@
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
+         <font>
+            <Font name="Broadway" size="12.0" />
+         </font>
       </Label>
       <Label prefHeight="17.0" prefWidth="48.0" text="Apellido" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
       <Label prefHeight="17.0" prefWidth="33.0" text="Edad " GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
@@ -46,7 +49,7 @@
       <TextField fx:id="formularioApellido" focusTraversable="false" promptText="apellidos del paciente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="formularioEdad" focusTraversable="false" prefHeight="25.0" prefWidth="452.0" promptText="edad paciente" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label text="Sexo " GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="100.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="4">
+      <HBox id="hbox1" alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="0.0" spacing="100.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="4">
          <children>
             <RadioButton fx:id="formularioMujer" focusTraversable="false" mnemonicParsing="false" text="Mujer">
                <padding>
@@ -60,13 +63,13 @@
          </children>
       </HBox>
       <Label text="Fecha " GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <HBox id="hbox2" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <children>
             <DatePicker fx:id="formularioFecha" focusTraversable="false" promptText="Seleciona fecha" />
-            <ComboBox fx:id="box" focusTraversable="false" prefWidth="150.0" promptText="Selecciona box" />
+            <ComboBox id="comboBOX" fx:id="box" focusTraversable="false" prefWidth="150.0" promptText="Selecciona box" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <HBox id="hbox3" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <children>
             <TextField fx:id="formularioEmail" focusTraversable="false" prefHeight="25.0" prefWidth="174.0" promptText="email" />
             <TextField fx:id="formularioTelf" focusTraversable="false" promptText="teléfono" />
@@ -79,7 +82,7 @@
             <Insets top="5.0" />
          </GridPane.margin>
       </TextArea>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+      <HBox id="hbox4" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <children>
             <Button fx:id="guardarBotonFormulario" mnemonicParsing="false" onAction="#guardarCita" style="-fx-background-color: green;" text="Guardar" textFill="WHITE">
                <font>

@@ -11,6 +11,8 @@
     -fx-font-family:'JetBrains Mono';
     -fx-background-size: stretch;
     -fx-base: mintcream;
+    
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
    
 }
 #psssw::focuset{
@@ -58,6 +60,7 @@
 	-fx-font-weight:bold;
 	-fx-halignment:center;
 	-fx-font-family: "Caveat";
+	-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
 	
 	
 }
@@ -69,6 +72,7 @@
 	-fx-font-weight:bold;
 	-fx-halignment:center;
 	-fx-font-family: "Caveat";
+	-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
 	
 }
 .button{
@@ -85,6 +89,7 @@
 .button:hover{
 	-fx-background-color:yellow;
 	-fx-text-fill:red;
+	-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
 }
 .button:pressed{
 	-fx-background-color:green;

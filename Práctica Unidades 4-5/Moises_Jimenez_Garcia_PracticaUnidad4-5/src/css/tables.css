@@ -1,0 +1,22 @@
+.table-view {
+    -fx-font-size: 10px;
+    -fx-base: #1E90FF;
+    -fx-control-inner-background: #ADD8E6;
+    -fx-table-cell-border-color: #1E90FF;
+    -fx-table-header-border-color: #1E90FF;
+    -fx-background-color: #013E94;
+    -fx-padding: 5;
+    -fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #1E90FF;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-alignment: CENTER-LEFT;
+    -fx-padding: 0 5 0 5;
+}
