@@ -1,0 +1,27 @@
+.slider {
+   -fx-pref-width: 100px
+}
+
+.slider .track {
+    -fx-background-color: linear-gradient(to left, cyan,magenta);
+    -fx-background-radius: 0;
+}
+
+.slider .thumb{
+	-fx-pref-height: 30px;
+	-fx-pref-tile-width: 10px;
+	-fx-background-color: linear-gradient(to top, royalblue,green);
+	 -fx-background-radius: 0;
+	
+}
+
+.button{
+-fx-background-color: linear-gradient(to bottom left,#f78361, #f54b64 );
+	
+}
+
+
+.button:pressed{
+	-fx-background-color: cyan;
+	-fx-text-fill: black;
+}

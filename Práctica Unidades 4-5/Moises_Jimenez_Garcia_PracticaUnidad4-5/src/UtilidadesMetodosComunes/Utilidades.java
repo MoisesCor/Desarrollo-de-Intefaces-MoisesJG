@@ -114,6 +114,7 @@ public class Utilidades {
 	            dialogStage.setTitle("ANTES DE EMPEZAR");
 	            dialogStage.initModality(Modality.APPLICATION_MODAL);
 	            Scene scene = new Scene(page);
+	            scene.getStylesheets().add("css/dark.css");
 	            dialogStage.setScene(scene);
 	            ControllerPaginator controller = loader.getController();
 		           controller.setDialogStage(dialogStage);
