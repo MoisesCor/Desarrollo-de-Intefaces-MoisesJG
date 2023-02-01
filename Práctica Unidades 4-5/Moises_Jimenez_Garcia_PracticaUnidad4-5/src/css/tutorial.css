@@ -25,3 +25,169 @@
 	-fx-background-color: cyan;
 	-fx-text-fill: black;
 }
+
+.tab-pane > .tab-header-area > .headers-region > .tab:top {
+
+
+    -fx-border-color: #a3a7a8;
+
+
+    -fx-border-radius: 5 5 0 0;
+
+
+    -fx-background-color: white;
+
+
+    -fx-pref-height: 40px;  
+
+
+    -fx-background-insets: 0;
+
+
+}
+
+
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected:top {
+
+
+    -fx-border-color: #2381E9 #a3a7a8 #a3a7a8 #a3a7a8;
+
+
+    -fx-border-width: 5 1 1 1;   
+
+
+    -fx-border-radius: 5 5 0 0;
+
+
+    -fx-background-color: white;
+
+
+    -fx-pref-height: 40px;  
+
+
+    -fx-background-insets: 0;
+
+
+}
+
+
+
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected > .tab-container > .tab-label {
+
+
+    -fx-alignment: CENTER;
+
+
+    -fx-text-fill: #2381E9;
+
+
+    -fx-font-weight: bold;
+
+
+}
+
+
+
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+
+
+    -fx-alignment: CENTER;
+
+
+    -fx-text-fill: #2381E9;
+
+
+    -fx-font-weight: bold;
+
+
+}
+
+
+
+
+.tab-pane > .tab-header-area > .tab-header-background {
+
+
+    -fx-background-color:white;
+
+
+    -fx-border-color: #a3a7a8;
+
+
+    -fx-border-width: 0 0 1 0;
+
+
+    -fx-background-insets: 0;
+
+
+    -fx-pref-height: 45px;  
+
+
+}
+
+.check-box{
+	-fx-text-fill: #395cab;
+	-fx-label-padding: 0.0em 0.0em 0.416667em;
+}
+.check-box:focused{
+	-fx-color: #ff5400;
+	}
+.check-box .box{
+	-fx-background-color: #efaa22;
+}	
+
+.split-pane:horizontal > .split-pane-divider {
+   -fx-background-color: linear-gradient(to left, cyan,magenta);
+}
+.split-pane:vertical > .split-pane-divider {
+   -fx-background-color: linear-gradient(to left, cyan,magenta);
+}
+
+.list-view{
+	-fx-padding: 10;
+     -fx-border-style: solid inside;
+    -fx-border-width: 2; 
+    -fx-border-insets: 5; 
+    -fx-border-radius: 5;
+    -fx-border-color: blue;
+}
+
+.list-view .list-cell:filled:selected {
+    -fx-background-color: #08BFF9;
+  
+}
+/*Change cells of autocomplete popup*/
+.list-view.list-cell:hover {
+    -fx-background-color: #5f68ff;
+}
+/*Change cells of combobox*/
+.list-view .list-cell {
+    -fx-background-color: #FFF7BB;
+}
+
+ RadioButton:selected{
+	-fx-background-color: skyblue , derive( #C4E78D, 25%);
+	-fx-background-insets: -10, 0;
+	-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
+	
+
+}
+.choice-box{
+	-fx-background-color: 
+       
+        rgba(0,0,0,0.05),
+        linear-gradient(#dcca8a, #c7a740),
+        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+        linear-gradient(#f6ebbe, #e6c34d);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-padding: 15 30 15 30;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
+}
+
+	
+	
+	

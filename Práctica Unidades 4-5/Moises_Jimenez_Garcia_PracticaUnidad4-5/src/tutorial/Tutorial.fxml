@@ -37,7 +37,7 @@
          <content>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <top>
-                  <HBox alignment="CENTER" prefHeight="20.0" prefWidth="600.0" style="-fx-background-color: #C4E78D;" BorderPane.alignment="CENTER">
+                  <HBox id="hboxgeneral" alignment="CENTER" prefHeight="20.0" prefWidth="600.0" style="-fx-background-color: #C4E78D;" BorderPane.alignment="CENTER">
                      <children>
                         <ImageView fitHeight="41.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -102,7 +102,7 @@
                            <children>
                               <TextFlow prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="En esta opción podras citar a tus pacientes rellenando un formulario sencillo. Teniendo la opción de guardar, esto registrará la cita en la agenda o deshacer que borrara el contenido del formulario" wrappingWidth="188.3671875" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-id" text="En esta opción podras citar a tus pacientes rellenando un formulario sencillo. Teniendo la opción de guardar, esto registrará la cita en la agenda o deshacer que borrara el contenido del formulario" wrappingWidth="188.3671875" />
                                     <Button mnemonicParsing="false" onAction="#mostrarFormulario" prefHeight="25.0" prefWidth="50.0" text="ir" />
                                  </children>
                               </TextFlow>

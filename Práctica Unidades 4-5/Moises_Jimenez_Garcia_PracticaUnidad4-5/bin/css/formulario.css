@@ -46,19 +46,29 @@ GridPane{
 }
 
 .combo-box{
-	-fx-border-width:3px;
-	-fx-border-radius:25px;
+	-fx-background-color: 
+       
+        rgba(0,0,0,0.05),
+        linear-gradient(#dcca8a, #c7a740),
+        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+        linear-gradient(#f6ebbe, #e6c34d);
+    -fx-background-insets: 0,9 9 8 9,9,10,11;
+    -fx-background-radius: 50;
+    -fx-padding: 15 30 15 30;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
 }
 
-.combo-box .list-cell:filled:selected {
-    -fx-background-color: #08BFF9;
-  
-}
+
 /*Change cells of autocomplete popup*/
 .combo-box .list-cell:hover {
     -fx-background-color: #5f68ff;
 }
 /*Change cells of combobox*/
 .combo-box .list-cell {
-    -fx-background-color: #FFF7BB;
+    -fx-background-color: 
+       
+        rgba(0,0,0,0.05),
+        linear-gradient(#dcca8a, #c7a740),
+        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),
+        linear-gradient(#f6ebbe, #e6c34d);
 }

@@ -75,7 +75,7 @@ public class ControllerTutorial {
 	        
 	        //choice
 	        choice1.getItems().addAll("1 horas semana","2 horas semana","+ 2 horas semana");
-	        choice1.setValue("Tiempo de uso");
+	        choice1.setValue("Uso");
 	        
 	        
 	        //Lista

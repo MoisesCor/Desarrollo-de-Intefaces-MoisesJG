@@ -70,6 +70,7 @@ public class Utilidades {
 		            dialogStage.initModality(Modality.APPLICATION_MODAL);
 		            Scene scene = new Scene(page);
 		            dialogStage.setScene(scene);
+		            scene.getStylesheets().add("css/tables.css");
 		            
 		            // Show the dialog and wait until the user closes it
 		            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
@@ -93,6 +94,7 @@ public class Utilidades {
 	            dialogStage.initModality(Modality.APPLICATION_MODAL);
 	            Scene scene = new Scene(page);
 	            dialogStage.setScene(scene);
+	            scene.getStylesheets().add("css/tables.css");
 	            
 	            // Show the dialog and wait until the user closes it
 	            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
