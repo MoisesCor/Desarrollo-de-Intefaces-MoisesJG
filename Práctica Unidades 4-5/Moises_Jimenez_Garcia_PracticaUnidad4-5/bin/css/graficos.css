@@ -1,0 +1,30 @@
+.default-color0.chart-pie { -fx-pie-color: #C4E78D;
+-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
+}
+.default-color1.chart-pie { -fx-pie-color: skyblue;
+-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1); }
+ 
+.chart-pie-label-line {
+    -fx-stroke: linear-gradient(to left, cyan,magenta);
+    -fx-fill: skyblue;
+}
+ 
+.chart-pie-label {
+    -fx-fill: linear-gradient(to left, cyan,magenta);
+    -fx-font-size: 1em;
+} 
+.chart-legend {
+   -fx-background-color:  linear-gradient(to left, cyan,magenta);
+   -fx-stroke: linear-gradient(to left, cyan,magenta);
+}
+
+.chart{
+		-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
+	
+}
+
+#panePie{
+	-fx-background-image: url("75370.jpg");
+	    -fx-background-size: stretch;
+}
+	

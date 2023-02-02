@@ -223,6 +223,7 @@ public class ControllerMenu {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(PracticaMain.class.getResource("/estadisticas/Estadisticas.fxml"));
 			TabPane tutorial=(TabPane) loader.load();
+			tutorial.getStylesheets().add("css/graficos.css");
 			rootLayout.setCenter(tutorial);
 			
 

@@ -82,7 +82,11 @@ public class ControllerDatos {
     			new Citas("Moisés","Jiménez",30,"mois@gamil.com",66666666,"Hombre","Box1","tendinitis","2022-12-10","1111S"),
     			new Citas("Vanesa","Perez",22,"vane@gamil.com",7777777,"Mujer","Box2","Esguince","2022-10-10","2222T"),
     			new Citas("Raquel","Solear",50,"raquel@gamil.com",555555555,"Mujer","Box1","fractura","2022-10-10","3333V"),
-    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","Box3","cuento","2022-10-10","OOOOR")
+    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","Box3","cuento","2022-10-10","OOOOR"),
+    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","Box3","cuento","2023-10-10","OOOOR"),
+    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","Box2","cuento","2021-10-10","OOOOR"),
+    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","Box2","cuento","2024-10-10","OOOOR"),
+    			new Citas("Victor","Rio",25,"vict@gamil.com",44444444,"Hombre","Box2","cuento","2020-10-10","OOOOR")
     			);
 	    
 		public ObservableList<Citas> getDatos() {

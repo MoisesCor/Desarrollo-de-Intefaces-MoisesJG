@@ -14,7 +14,7 @@
   <tabs>
     <Tab text="Sexo mayoritario">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane id="panePie" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <PieChart fx:id="pieSexosGraficos" layoutX="115.0" layoutY="19.0" legendSide="RIGHT" prefHeight="283.0" prefWidth="373.0" title="Ratio por sexos" titleSide="BOTTOM" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="19.0" />
                </children></AnchorPane>
@@ -26,7 +26,7 @@
                <children>
                   <VBox layoutX="-2.0" layoutY="1.0" prefHeight="320.0" prefWidth="600.0">
                      <children>
-                        <BarChart fx:id="barchartMESES" legendSide="RIGHT" prefHeight="142.0" prefWidth="600.0" title="Año Actual">
+                        <BarChart fx:id="barchartMESES" legendSide="RIGHT" prefHeight="318.0" prefWidth="598.0" title="Año Actual">
                           <xAxis>
                             <CategoryAxis fx:id="AxisBarChart" side="BOTTOM" />
                           </xAxis>
@@ -34,6 +34,17 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </BarChart>
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Histórico">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox layoutX="-1.0" layoutY="5.0" prefHeight="310.0" prefWidth="600.0">
+                     <children>
                         <StackedBarChart fx:id="StackedBarChart" legendSide="RIGHT" title="Todos los años">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
@@ -44,8 +55,9 @@
                         </StackedBarChart>
                      </children>
                   </VBox>
-               </children></AnchorPane>
-      </content>
-    </Tab>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
   </tabs>
 </TabPane>
