@@ -1,6 +1,46 @@
 #cabecera{
 		-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
 }
+
+#datos1{
+		-fx-pref-width:700;
+		-fx-pref-height:375;
+}
+#hboxdatos1{
+	-fx-pref-width:486;
+		-fx-pref-height:32;
+		-fx-spacing: 5;
+}
+
+#anchor1datos1{
+	-fx-pref-width:698;
+		-fx-pref-height:198;
+}
+
+#scrolldatos1{
+	-fx-pref-width:200;
+	-fx-pref-height:200;
+}
+
+#tabledatos1{
+	-fx-pref-width:1201;
+	-fx-pref-height:174;
+}
+
+#anchortabledatos1{
+	-fx-pref-width:1196;
+	-fx-pref-height:421;
+}
+
+#anchordatos2{
+	-fx-pref-width:700;
+	-fx-pref-height:400;
+}
+
+#tabledatos2{
+	-fx-pref-width:704;
+	-fx-pref-height:360;
+}
 .table-cell {     
     -fx-padding: 0.5em 0.5em 0.1em 0.3em;
     -fx-border-color: -fx-box-border -fx-box-border transparent transparent;  

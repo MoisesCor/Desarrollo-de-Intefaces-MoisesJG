@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.24664879356568364" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="375.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datos.ControllerDatos">
+<SplitPane id="datos1" dividerPositions="0.24664879356568364" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" stylesheets="@../css/tables.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datos.ControllerDatos">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="189.0" prefWidth="698.0">
+    <AnchorPane id="anchor1datos1" minHeight="0.0" minWidth="0.0" prefHeight="189.0" prefWidth="698.0">
          <children>
-            <HBox alignment="CENTER" layoutX="90.0" layoutY="29.0" prefHeight="32.0" prefWidth="486.0" spacing="5.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="122.0">
+            <HBox id="hboxdatos1" alignment="CENTER" layoutX="90.0" layoutY="29.0" prefHeight="32.0" prefWidth="486.0" spacing="5.0" stylesheets="@../css/tables.css" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="122.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="108.0" text="Buscar paciente" textFill="#f20b0b">
                      <font>
@@ -31,11 +31,11 @@
                </children>
             </HBox>
          </children></AnchorPane>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0">
+      <ScrollPane id="scrolldatos1" prefHeight="0.0" prefWidth="0.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="421.0" prefWidth="1196.0">
+          <AnchorPane id="anchortabledatos1" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0">
                <children>
-                  <TableView fx:id="tablaDatos" prefHeight="174.0" prefWidth="1201.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView id="tabledatos1" fx:id="tablaDatos" prefHeight="0.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columns>
                         <TableColumn fx:id="nombre" prefWidth="133.0" text="Nombre" />
                         <TableColumn fx:id="DNI" prefWidth="106.0" text="DNI" />

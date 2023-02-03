@@ -31,13 +31,13 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<TabPane maxHeight="1000.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tutorial.ControllerTutorial">
+<TabPane maxHeight="1000.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" stylesheets="@../css/tutorial.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tutorial.ControllerTutorial">
   <tabs>
     <Tab text="¿Como se usa?">
          <content>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <BorderPane prefHeight="0.0" prefWidth="0.0">
                <top>
-                  <HBox id="hboxgeneral" alignment="CENTER" prefHeight="20.0" prefWidth="600.0" style="-fx-background-color: #C4E78D;" BorderPane.alignment="CENTER">
+                  <HBox id="hboxgeneral" alignment="CENTER" prefHeight="20.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                      <children>
                         <ImageView fitHeight="41.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -48,7 +48,7 @@
                   </HBox>
                </top>
                <bottom>
-                  <HBox prefHeight="55.0" prefWidth="584.0" style="-fx-background-color: #C4E78D;" BorderPane.alignment="CENTER">
+                  <HBox id="hboxgeneral" prefHeight="55.0" prefWidth="584.0" BorderPane.alignment="CENTER">
                      <children>
                         <Label prefHeight="27.0" prefWidth="201.0" text="Enlaces Recomendados">
                            <font>
@@ -78,7 +78,7 @@
                   </HBox>
                </bottom>
                <center>
-                  <GridPane prefHeight="226.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                  <GridPane prefHeight="0.0" prefWidth="0.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="107.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="495.0" minWidth="10.0" prefWidth="493.0" />

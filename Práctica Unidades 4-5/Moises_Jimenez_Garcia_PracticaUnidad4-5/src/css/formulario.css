@@ -45,6 +45,11 @@ GridPane{
 	-fx-spacing: 10;
 }
 
+#texareafor{
+	-fx-pref-width:200;
+	-fx-pref-height:200;
+}
+
 .combo-box{
 	-fx-background-color: 
        

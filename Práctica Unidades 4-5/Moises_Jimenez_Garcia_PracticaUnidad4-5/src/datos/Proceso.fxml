@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datos.ControllerPENDIENTESandTERMINADAS">
+<AnchorPane id="anchordatos2" prefHeight="0.0" prefWidth="0.0" stylesheets="@../css/tables.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="datos.ControllerPENDIENTESandTERMINADAS">
    <children>
-      <TableView fx:id="tablaPendiID" layoutY="40.0" prefHeight="360.0" prefWidth="704.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+      <TableView id="tabledatos2" fx:id="tablaPendiID" layoutY="40.0" prefHeight="0.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
         <columns>
           <TableColumn fx:id="nombreTa" prefWidth="120.0" text="Nombre" />
           <TableColumn fx:id="dniTab" prefWidth="120.0" text="DNI" />

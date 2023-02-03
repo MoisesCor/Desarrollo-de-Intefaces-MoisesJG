@@ -1,8 +1,15 @@
 .image-view:hover{
 	-fx-scale-x:1.5;
-
-	
+ 	-fx-translate-z: 20;
+	  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
+
+.image-view{
+
+
+
+}
+
 #fisio:hover{
 	-fx-rotate: 160;
 	-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
@@ -12,6 +19,13 @@
 .root{
 	-fx-pref-width:700;
 	-fx-pref-height:400;
+	-fx-effect: dropshadow(three-pass-box, #000000, 10.0, 0, 0, 0);
+}
+
+.vbox{
+	-fx-pref-width:100;
+	-fx-pref-height:200;
+	-fx-alignment: center;
 }
 
 .menu-bar {

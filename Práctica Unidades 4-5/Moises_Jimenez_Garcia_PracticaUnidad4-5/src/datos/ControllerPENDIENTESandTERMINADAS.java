@@ -170,6 +170,7 @@ public class ControllerPENDIENTESandTERMINADAS {
 	            dialogStage.setTitle("Consulta cliente");
 	            dialogStage.initModality(Modality.APPLICATION_MODAL);
 	            Scene scene = new Scene(page);
+	            scene.getStylesheets().add("css/dark.css");
 	            dialogStage.setScene(scene);
 	            
 	            ControllerModalPendientes controller = loader.getController();

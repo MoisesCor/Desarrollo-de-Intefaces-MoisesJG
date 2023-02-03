@@ -27,4 +27,13 @@
 	-fx-background-image: url("75370.jpg");
 	    -fx-background-size: stretch;
 }
+
+.tab-pane{
+	-fx-pref-width:600;
+	-fx-pref-height:350;
+}
+.anchorpane{
+	-fx-pref-width:200;
+	-fx-pref-height:180;
+}
 	

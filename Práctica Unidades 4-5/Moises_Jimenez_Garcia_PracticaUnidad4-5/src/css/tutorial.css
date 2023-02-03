@@ -105,7 +105,20 @@
 
 }
 
+.tab-pane{
+	-fx-pref-width:600;
+	-fx-pref-height:350;
+}
 
+.border-pane{
+	-fx-pref-width:200;
+	-fx-pref-height:200;
+}
+
+.grid-pane{
+	-fx-pref-width:600;
+	-fx-pref-height:226;
+}
 
 
 .tab-pane > .tab-header-area > .tab-header-background {
@@ -188,6 +201,28 @@
     -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);
 }
 
-	
-	
+#hboxgeneral{
+	-fx-background-color: #C4E78D;
+	-fx-pref-width:600;
+	-fx-pref-height:20;
+	-fx-alignment: center;
+}
+
+.accordion{
+		-fx-pref-width:295;
+		-fx-pref-height:126;
+  		-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+
+}
+
+.accordion .titled-pane:hover {
+-fx-background-radius: 5;
+  -fx-background-color: linear-gradient( cyan,magenta);
+  -fx-text-fill: black;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+  -fx-padding: 5;
+}
+
+
+
 	
