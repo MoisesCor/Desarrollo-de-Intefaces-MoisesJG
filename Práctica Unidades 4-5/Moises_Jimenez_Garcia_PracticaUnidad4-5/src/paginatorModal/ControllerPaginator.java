@@ -15,7 +15,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/**
+ * Controlador del paginator
+ * @author Moisés Jiménez García
+ *
+ */
 
 public class ControllerPaginator {
 	

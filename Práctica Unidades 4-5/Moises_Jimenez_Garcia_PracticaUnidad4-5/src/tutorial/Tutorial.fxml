@@ -116,7 +116,7 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="En esta opción podras consultar el hisorial de citas, las citas pendientes, las citas acabadas y consultar de forma individual los registros de pacientes." wrappingWidth="196.30078125" />
                                  </children>
                               </TextFlow>
-                              <Accordion prefHeight="126.0" prefWidth="295.0">
+                              <Accordion prefHeight="0.0" prefWidth="0.0">
                                 <panes>
                                   <TitledPane animated="false" text="Opción todas">
                                     <content>

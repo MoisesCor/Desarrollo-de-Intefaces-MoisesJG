@@ -17,7 +17,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
-
+/**
+ * Controlador que se encarga de abrir un modal de la cita pendiente seleccionada
+ * @author Moisés Jiménez García
+ *
+ */
 public class ControllerModalPendientes {
 	
 	ControllerPENDIENTESandTERMINADAS control;
@@ -85,8 +89,9 @@ public class ControllerModalPendientes {
   			}
   		});	
     	
-    	/* listener usado para obtener el valor antiguo del comboBox del modal y el nuevo
-    	 * y interactuar con ellos para darle información al usuario de los eventos*/
+    	/** listener usado para obtener el valor antiguo del comboBox del modal y el nuevo
+    	 * y interactuar con ellos para darle información al usuario de los eventos
+    	 */
     	venBox.getSelectionModel().selectedItemProperty().addListener(
         		(observable, oldValue, newValue) -> {
         			resultado.setText("Antiguo -> " + oldValue + "\n" + "Nuevo -> " + newValue);
@@ -99,9 +104,9 @@ public class ControllerModalPendientes {
 	        this.dialogStage = dialogStage;
 	    }
 	    
-	   /*Recogemos la información del cliente y se la pasamos al modal de editar o borrar
+	   /**Recogemos la información del cliente y se la pasamos al modal de editar o borrar
 	    * con su casteo de fechas para poder ser usado
-	    *  */
+	    */
 	    public void setCitas(Citas cita1) {
 	    	  DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		      LocalDate local_date = LocalDate.parse(cita1.getFecha(), JEFormatter);
@@ -122,14 +127,15 @@ public class ControllerModalPendientes {
 	    	
 	    }
 	    
-	    @FXML
-	    /* método que llama al método de borrar de controllerDatos (es el central)
+	    /** método que llama al método de borrar de controllerDatos (es el central)
 	     * le pasa el valor de la cita creada aquí y lo borra de la lista general
 	     * he creado un objeto de la clase ControllerPENDIENTESandTERMINADAS ( ese objeto recibe el valor del propio controlador
 	     * cuando llama al método borrar, este le pasa su valor, para que seguido pueda acceder el al método propio de la clase
 	     * encargado de refrescar la tabla, así en tiempo real se efetuan los cambios)
 	     * que es la que contiene la información de esa tabla
-	     * para poder llamar a su método*/
+	     * para poder llamar a su método
+	     **/
+	    @FXML
 	    void borrarCitaModal(ActionEvent event) {
 	    	
 	    	ControllerDatos.borrarCita(cita);
@@ -140,9 +146,10 @@ public class ControllerModalPendientes {
 	    	
 		    }
 	    
+	    /**Misma funcionalidad que el anterior pero este edita los campos
+	     * de esa cita
+	     */
 	    @FXML
-	    /*Misma funcionalidad que el anterior pero este edita los campos
-	     * de esa cita*/
 	    void editarModal(ActionEvent event) {
 	    	cita.setEmail(venEm.getText());
 	    	cita.setTelefono(Integer.parseInt(venTel.getText()));

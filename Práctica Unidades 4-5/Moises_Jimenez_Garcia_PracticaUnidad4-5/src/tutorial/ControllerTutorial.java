@@ -30,7 +30,11 @@ import java.net.URISyntaxException;
 
 import UtilidadesMetodosComunes.Utilidades;
 import application.ControllerMenu;
-
+/**
+ * Controlador tutorial
+ * @author Moisés Jiménez garcía 
+ *
+ */
 
 public class ControllerTutorial {
 	String resultado;
@@ -90,7 +94,10 @@ public class ControllerTutorial {
 	 
 	  @FXML
 	  
-	  // Evento que nos crea un modal donde el usuario pueda contestar a las preguntas
+	  /**
+	   * Evento que nos crea un modal donde el usuario pueda contestar a las preguntas
+	   * @param event
+	   */
 	    void mostrarDialogo(MouseEvent event) {
 		 
 		  
@@ -112,7 +119,10 @@ public class ControllerTutorial {
 	  
 	 
 	 
-	 //Métodos para hacer el link funcional, obtenido importando la clase desktop
+	 /**
+	  * Métodos para hacer el link funcional, obtenido importando la clase desktop
+	  * @param event
+	  */
 	 
 	    @FXML
 	    void irVinculo(ActionEvent event) {
@@ -161,7 +171,9 @@ public class ControllerTutorial {
 				e.printStackTrace();
 			}
 	    }
-	    /*Siguientes métodos encargados de abrir los modales*/
+	    /**
+	     *Siguientes métodos encargados de abrir los modales
+	     */
 	    @FXML
 	    void mostrarFormulario(ActionEvent event) {
 	    	Utilidades.modalFormulario();

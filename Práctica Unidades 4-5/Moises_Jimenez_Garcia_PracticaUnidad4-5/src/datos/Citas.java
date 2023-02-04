@@ -2,7 +2,12 @@ package datos;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-
+/**
+ * Clase objeto Citas donde se crean lo necesario para poder trabajar con la información necesaria en la aplicación
+ * facilitando registros de citas
+ * @author Moisés Jiménez García
+ *
+ */
 public class Citas {
 	
 	private SimpleStringProperty nombre;

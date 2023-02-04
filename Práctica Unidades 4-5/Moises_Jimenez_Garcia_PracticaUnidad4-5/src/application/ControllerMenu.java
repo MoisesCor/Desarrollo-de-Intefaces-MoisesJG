@@ -28,7 +28,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 import javafx.stage.Stage;
-
+/**
+ * Controlador principal del login y el menu donde suceden todas las acciones disponibles
+ * @author Moisés Jiménez García
+ * 
+ *
+ */
 
 public class ControllerMenu {
 	// Pantalla principal en la que se añade o quita contenido
@@ -73,11 +78,13 @@ public class ControllerMenu {
 	    Utilidades util;
 	  
 	  
-	  /* Inicio de sesión donde si el usuario pulsa entrar valida que los campos usuario contraseña son correctos
+	  /**
+	   *  Inicio de sesión donde si el usuario pulsa entrar valida que los campos usuario contraseña son correctos
 	   * Si son correctos, abre modal de ANTES DE EMPEZAR,al hacer ok cierra esa y la del usuario. De lo contrario abre un modal de error
 	   * llamando al método utilidades donde he generado métodos comunes para comodidad
 	   * si el usuario cierra la ventana vuelve abrir la de login, llamando a esa misma ventana
-	   * gracias a la referenci al main creada*/
+	   * gracias a la referenci al main creada
+	   */
 	    @FXML
 	    void iniciarSesion(ActionEvent event) {
 	    	if(usuario.getText().equals("usuario") && psw.getText().equals("usuario")) {
@@ -92,7 +99,11 @@ public class ControllerMenu {
 		}
 	    
 	    
-	    
+	 
+	    /**
+	     * 
+	     * @param event
+	     */
 	@FXML
 	void abrirFormulario(ActionEvent event) {
 		
@@ -170,11 +181,18 @@ public class ControllerMenu {
 
 	    }
     
-    /*Método que devuelve el valor de la selección del menu CITAS devuelve
+
+    
+    /**
+     * 
+     * @return Método que devuelve el valor de la selección del menu CITAS devuelve
      * acabadas o pendientes, es llamado desde /datos/ControllerPENDIENTESandTERMINADAS.java
      * para filtrar que datos han de cargar en la tabla
      * El valor de lo que retorna cambia en esta propia clase en el método de abrirPendientes
-     * donde verificamos que opción tiene seleccionada*/
+     * donde verificamos que opción tiene seleccionada
+     * 
+     * 
+     */
     public static String cualPulsaUsuario() {
     	
 		return cualPulsa;
@@ -198,7 +216,9 @@ public class ControllerMenu {
 		}
     }
     
-    //Llamada al modal de la clase Utilidades antes de empezar
+    /**
+     * Llamada al modal de Utilidades que abrira ventana de forma emergente dando incicaciones
+     */
 		public void antesEmpeza() {
 			Utilidades.modalPaginator();
 		}
@@ -209,7 +229,10 @@ public class ControllerMenu {
 		return rootLayout;
 	}
 
-		// Necesario para poder cargar la escena
+		/**
+		 * 
+		 * @param rootLayout Necesario para poder cargar la escena
+		 */
 	public void setRootLayout(BorderPane rootLayout) {
 		this.rootLayout = rootLayout;
 	}

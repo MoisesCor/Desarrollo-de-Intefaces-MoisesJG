@@ -23,7 +23,11 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
-
+/**
+ * Controlador de los diferentes gráficos donde obtenemos los datos de la lista de cita y trabajamos con ellos
+ * @author Moisés Jiménez García
+ *
+ */
 public class ControllerEstadisticas {
 	
 	ObservableList<Citas>Estadisticas=  ControllerDatos.datos;
@@ -59,7 +63,10 @@ public class ControllerEstadisticas {
 	 StackedBarChart();
 	 
  }
- //Método para cargar los datos de los sexos, Recorremos la lista
+ /*
+  * Método para cargar los datos de los sexos, Recorremos la lista
+  * contamos cuantos hay de cada uno, y se lo cargamos al gráfico
+  */
  	private void  pieSexos() {
  		int nuM=0;
  		int nuH=0;
@@ -80,7 +87,10 @@ public class ControllerEstadisticas {
 	 
  	}
  	
- 	/*Método para calcular citas por meses*/
+ 	/**
+ 	 *  Método para calcular citas por meses en año actual, usando un método que compara si el año de la cita
+ 	 *  que tiene el foco en ese momento es igual que el actual. la cuenta registrandola por mes
+ 	 */
  	private void barChart() {
  		
  		//Contador de meses
@@ -112,11 +122,12 @@ public class ControllerEstadisticas {
  		
  		
  	}
- 	/*Método que se encarga de ir creando los registros segun los años que esten disponibles
+ 	/**Método que se encarga de ir creando los registros segun los años que esten disponibles
  	 * se crea un arrayList de xychart donde vamos guardando las diferentes series que se van creando
  	 * recorriendo la lista de citas y filtrando por año
  	 * se crea un arrayList auxiliar donde voy guardando los años que van apareciendo
- 	 * para que si unn año ya ha sido contado no volver a contarlo*/
+ 	 * para que si unn año ya ha sido contado no volver a contarlo
+ 	 */
  	private void StackedBarChart() {
  		String fech;
  		ArrayList<String>contadorAn= new ArrayList<String>();
@@ -167,7 +178,11 @@ public class ControllerEstadisticas {
  		
 		
  	}
- 	// método usado para convertir el String en fecha, y devolver el numero de mes -1 para que cuadre con el array
+ 	/**
+ 	 *  método usado para convertir el String en fecha, y devolver el numero de mes -1 para que cuadre con el array
+ 	 * @param fecha a consultat
+ 	 * @return int número que ocupa en el array
+ 	 */
 	 public int convertirMesesNumeros(String fecha) {
 		 DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	      LocalDate local_date = LocalDate.parse(fecha, JEFormatter);
@@ -178,7 +193,11 @@ public class ControllerEstadisticas {
 	  
     	
     }
-	 
+	 /**
+	  * 
+	  * @param fecha a sacar los años
+	  * @return int número del año de la fecha
+	  */
 	 public int convertirAnyos(String fecha) {
 		 DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	      LocalDate local_date = LocalDate.parse(fecha, JEFormatter); 

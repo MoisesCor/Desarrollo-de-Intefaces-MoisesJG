@@ -1,5 +1,6 @@
 package datos;
 import java.io.IOException;
+
 import java.net.URL;
 
 import java.time.LocalDate;
@@ -22,6 +23,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+/**
+ * Controlador que se encarga de mostrar los datos basados a un filtrado indicado en los distintos métodos
+ * @author Moisés Jiménez García
+ *
+ */
 public class ControllerPENDIENTESandTERMINADAS {
 	
     @FXML
@@ -82,12 +88,14 @@ public class ControllerPENDIENTESandTERMINADAS {
     
 
     }
-    /*Método que se encarga de actualizar la tabla comprobando en que boton fue pulsado
+    /**Método que se encarga de actualizar la tabla comprobando en que boton fue pulsado
      *  si borrar o editar, si es EDITAR comprueba que tabla esta seleccionada si 
      *  acabadas o pendientes, y comprueba en cada caso si la fecha ha sido modificada
      *  si la fecha en acabadas es modificada a una fecha mayor esta sera borrada de la tabla
      *  y se vuelve a cargar los datos, en el caso contrario pasa lo mismo pero si la fecha es superior
-     * */
+     *  @param opcion del menu bar seleccionada 
+     *  @param fecha de la cita seleccionada
+     */
     public void refreshTabla(String opcion, String fecha) {
     	String cualEntra=ControllerMenu.cualPulsaUsuario();
     	// recogemos el index de la selección actual y lo borramos de la tabla
@@ -120,9 +128,11 @@ public class ControllerPENDIENTESandTERMINADAS {
     	
     }
     
-    /*Metodo cargar datos filtrando los datos de la general que tiene un observable que será adjudicado a la tabla
+    /**Metodo cargar datos filtrando los datos de la general que tiene un observable que será adjudicado a la tabla
      * con el filtro correspondiente  donde según que pestaña este el usuario carga unos u otros
-     * para ser mostrados esto devuelve una lista, si no hay elementos que cumplan las condiciones devuelve la tabla vacía*/
+     * para ser mostrados esto devuelve una lista, si no hay elementos que cumplan las condiciones devuelve la tabla vacía
+     * @return lista con las citas existentes
+     */
     public ObservableList<Citas> cargarDatos() {
     	;
     	String cualEntra=ControllerMenu.cualPulsaUsuario();
@@ -144,7 +154,10 @@ public class ControllerPENDIENTESandTERMINADAS {
     	}
 		return ok==true?datospendientes:null;
 
-}	/*Método usado para devolver si la fecha consultada es despés que la actual*/
+}	
+    /**Método usado para devolver si la fecha consultada es después que la actualff
+     * @param fecha fecha a comparar con la actual
+ 	*/
     public boolean calcularFechaPendientes(String fecha) {
 	      DateTimeFormatter JEFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	      LocalDate local_date = LocalDate.parse(fecha, JEFormatter);
@@ -154,7 +167,10 @@ public class ControllerPENDIENTESandTERMINADAS {
 	  
     	
     }
-    // método llamado desde listener para que abra el modal si hay una celsa seleccionada
+    /**
+     *  método llamado desde listener para que abra el modal si hay una celsa seleccionada
+     * @param cita recogida para cargar el los datos en la ventana
+     */
     private void mostrarVentana(Citas cita) {
     	
    	 try {

@@ -20,6 +20,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * Clase Main donde se inicia la aplicación
+ * 
+ * @author Moisés Jiménez García 
+ * @version 4.5
+ *
+ */
 
 
 
@@ -41,8 +48,10 @@ public class PracticaMain extends Application {
 		
 	}
 
-	/*En el main en este caso me he creado las dos ventanas principales de la aplicaciï¿½n
-	 * para tener manejo de ellas solo istanciando el main*/
+	/**
+	 * Ventana principal del login donde dara acceso al contenido integro a la app
+	 * 
+	 */
 	public void iniciPrincipal() {
 		try {
 			// Carga el diseï¿½o del archivo FXML en la variable rootLayout
@@ -76,7 +85,9 @@ public class PracticaMain extends Application {
 	}
 	
 	
-	//abrir General
+	/**
+	 * Ventana del menu donde en el medio de está se cargan las diferentes ventanas 
+	 */
 	public void  abrirGeneral() {
 		try {
 			// Carga el diseï¿½o del archivo FXML en la variable rootLayout
@@ -100,8 +111,10 @@ public class PracticaMain extends Application {
 			stage.setTitle("Moisés Jiménez PracticaUnidad 4-5");
 			stage.show();
 			
-			/*Eventos de teclado creados en la escena general para poder acceder a dos ventanas de la aplicaciï¿½n segï¿½n
-			 * donde mantenga pulsado*/
+			/**
+			 * Eventos de teclado creados en la escena general para poder acceder a dos ventanas de la aplicación según
+			 * donde mantenga pulsado
+			 */
 			scene.setOnKeyReleased((KeyEvent keyEvent) -> {
 			    System.out.println(" -> " + keyEvent.getCode().toString( )); //traza
 			    if(keyEvent.isControlDown()) {

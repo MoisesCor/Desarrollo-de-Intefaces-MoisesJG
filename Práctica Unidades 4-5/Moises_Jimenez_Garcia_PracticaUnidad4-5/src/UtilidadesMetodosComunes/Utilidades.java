@@ -17,11 +17,18 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import paginatorModal.ControllerPaginator;
-
+/**
+ * Clase donde se recogen diferentes métodos comunes usados en diferentes controladores
+ * para reutilización y optimización de código
+ * @author Moisés Jiménez García
+ *
+ */
 public class Utilidades {
 	
-	/*Clase común para poder ser usadas por todas donde implemento los diferente modales
-	 * y un constructor de alertas para poder usarlos más cómodamente*/
+	/**
+	 * Clase común para poder ser usadas por todas donde implemento los diferente modales
+	 * y un constructor de alertas para poder usarlos más cómodamente
+	 */
 	
 	  public static  Alert crearAlert(AlertType type, String title, String header, String contextText) {
 	    	Alert auxAlert = new Alert(type);
@@ -32,7 +39,9 @@ public class Utilidades {
 	    	
 	    	return auxAlert;
 	    }
-	  
+	  /**
+	   * método para abrir ventana en modal
+	   */
 	  public static void modalFormulario() {
 		  try {
 	            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de diálogo emergente.
@@ -57,6 +66,9 @@ public class Utilidades {
 	        }
 	  }
 	  
+	  /**
+	   * método para abrir ventana en modal
+	   */
 	 public static void mostrarCita() {
 	    	 try {
 		            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de diálogo emergente.
@@ -80,7 +92,9 @@ public class Utilidades {
 		        }
 	    }
 	 
-	 
+	  /**
+	   * método para abrir ventana en modal
+	   */
 	 public static void mostrarPendiente() {
     	 try {
 	            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de diálogo emergente.
@@ -103,7 +117,9 @@ public class Utilidades {
 	           
 	        }
     }
-	 
+	  /**
+	   * método para abrir ventana en modal
+	   */
 	 public static void modalPaginator() {
     	 try {
 	            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de diálogo emergente.
