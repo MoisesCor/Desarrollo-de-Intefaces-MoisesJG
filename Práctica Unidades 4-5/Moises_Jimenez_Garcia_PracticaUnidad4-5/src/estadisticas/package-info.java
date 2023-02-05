@@ -1,5 +1,5 @@
 package estadisticas;
 /**
- * Contiene la vista de los gráficos y su controlador
+ * Contiene la vista de los graficos y su controlador
  */
  

@@ -19,7 +19,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 /**
  * Controlador que se encarga de abrir un modal de la cita pendiente seleccionada
- * @author Moisés Jiménez García
+ * @author MoisÃ©s JimÃ©nez GarcÃ­a
+ * @version 4.5
  *
  */
 public class ControllerModalPendientes {
@@ -77,20 +78,20 @@ public class ControllerModalPendientes {
     	
     	
     	/*Filtro usado en el campo telefono
-    	 * solo permite usar números*/
+    	 * solo permite usar nÃºmeros*/
     	
     	venTel.addEventFilter(KeyEvent.KEY_TYPED, (e) -> {	
     	
   			System.out.println("Character: " + e.getCharacter());;
   			
   			if (Character.isLowerCase(e.getCharacter().charAt(0))) {
-  				// Comprobamos si es númerico, si no:
+  				// Comprobamos si es nÃºmerico, si no:
   				e.consume(); // lo que hace es  no procesar el caracter lo borra
   			}
   		});	
     	
     	/** listener usado para obtener el valor antiguo del comboBox del modal y el nuevo
-    	 * y interactuar con ellos para darle información al usuario de los eventos
+    	 * y interactuar con ellos para darle informaciÃ³n al usuario de los eventos
     	 */
     	venBox.getSelectionModel().selectedItemProperty().addListener(
         		(observable, oldValue, newValue) -> {
@@ -104,7 +105,7 @@ public class ControllerModalPendientes {
 	        this.dialogStage = dialogStage;
 	    }
 	    
-	   /**Recogemos la información del cliente y se la pasamos al modal de editar o borrar
+	   /**Recogemos la informaciÃ³n del cliente y se la pasamos al modal de editar o borrar
 	    * con su casteo de fechas para poder ser usado
 	    */
 	    public void setCitas(Citas cita1) {
@@ -127,13 +128,13 @@ public class ControllerModalPendientes {
 	    	
 	    }
 	    
-	    /** método que llama al método de borrar de controllerDatos (es el central)
-	     * le pasa el valor de la cita creada aquí y lo borra de la lista general
+	    /** mÃ©todo que llama al mÃ©todo de borrar de controllerDatos (es el central)
+	     * le pasa el valor de la cita creada aquÃ­ y lo borra de la lista general
 	     * he creado un objeto de la clase ControllerPENDIENTESandTERMINADAS ( ese objeto recibe el valor del propio controlador
-	     * cuando llama al método borrar, este le pasa su valor, para que seguido pueda acceder el al método propio de la clase
-	     * encargado de refrescar la tabla, así en tiempo real se efetuan los cambios)
-	     * que es la que contiene la información de esa tabla
-	     * para poder llamar a su método
+	     * cuando llama al mÃ©todo borrar, este le pasa su valor, para que seguido pueda acceder el al mÃ©todo propio de la clase
+	     * encargado de refrescar la tabla, asÃ­ en tiempo real se efetuan los cambios)
+	     * que es la que contiene la informaciÃ³n de esa tabla
+	     * para poder llamar a su mÃ©todo
 	     **/
 	    @FXML
 	    void borrarCitaModal(ActionEvent event) {
@@ -163,5 +164,4 @@ public class ControllerModalPendientes {
 	    }
 	    
 	
-
 

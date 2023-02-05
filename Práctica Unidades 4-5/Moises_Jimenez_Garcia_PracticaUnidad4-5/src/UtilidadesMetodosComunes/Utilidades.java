@@ -17,134 +17,139 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import paginatorModal.ControllerPaginator;
+
 /**
- * Clase donde se recogen diferentes mÈtodos comunes usados en diferentes controladores
- * para reutilizaciÛn y optimizaciÛn de cÛdigo
- * @author MoisÈs JimÈnez GarcÌa
+ * Clase donde se recogen diferentes m√©todos comunes usados en diferentes
+ * controladores para reutilizaci√≥n y optimizaci√≥n de c√≥digo
+ * 
+ * @author Mois√©s Jim√©nez Garc√≠a
+ * @version 4.5
  *
  */
 public class Utilidades {
-	
+
 	/**
-	 * Clase com˙n para poder ser usadas por todas donde implemento los diferente modales
-	 * y un constructor de alertas para poder usarlos m·s cÛmodamente
+	 * Clase com√∫n para poder ser usadas por todas donde implemento los diferente
+	 * modales y un constructor de alertas para poder usarlos m√°s c√≥modamente
 	 */
-	
-	  public static  Alert crearAlert(AlertType type, String title, String header, String contextText) {
-	    	Alert auxAlert = new Alert(type);
-	    	
-	    	auxAlert.setTitle(title);
-	    	auxAlert.setHeaderText(header);
-	    	auxAlert.setContentText(contextText);
-	    	
-	    	return auxAlert;
-	    }
-	  /**
-	   * mÈtodo para abrir ventana en modal
-	   */
-	  public static void modalFormulario() {
-		  try {
-	            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de di·logo emergente.
-	        	FXMLLoader loader = new FXMLLoader();
-				loader.setLocation(ControllerMenu.class.getResource("/formulario/FormularioCitas.fxml"));
-				GridPane page = (GridPane) loader.load();
 
-	            // Create the dialog Stage.
-	            Stage dialogStage = new Stage();
-	            dialogStage.setTitle("Consulta cliente");
-	            dialogStage.initModality(Modality.APPLICATION_MODAL);
-	            Scene scene = new Scene(page);
-	            scene.getStylesheets().add("css/formulario.css");
-	            dialogStage.setScene(scene);
-	            
-	            
-	         
-	            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	           
-	        }
-	  }
-	  
-	  /**
-	   * mÈtodo para abrir ventana en modal
-	   */
-	 public static void mostrarCita() {
-	    	 try {
-		            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de di·logo emergente.
-	    		 FXMLLoader loader = new FXMLLoader();
-	         	loader.setLocation(ControllerDatos.class.getResource("/datos/DatosCitas.fxml"));
-	 			SplitPane page= (SplitPane) loader.load();
+	public static Alert crearAlert(AlertType type, String title, String header, String contextText) {
+		Alert auxAlert = new Alert(type);
 
-		            // Create the dialog Stage.
-		            Stage dialogStage = new Stage();
-		            dialogStage.setTitle("Consulta cliente");
-		            dialogStage.initModality(Modality.APPLICATION_MODAL);
-		            Scene scene = new Scene(page);
-		            dialogStage.setScene(scene);
-		            scene.getStylesheets().add("css/tables.css");
-		            
-		            // Show the dialog and wait until the user closes it
-		            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		           
-		        }
-	    }
-	 
-	  /**
-	   * mÈtodo para abrir ventana en modal
-	   */
-	 public static void mostrarPendiente() {
-    	 try {
-	            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de di·logo emergente.
-    		 FXMLLoader loader = new FXMLLoader();
-	 			loader.setLocation(PracticaMain.class.getResource("/datos/Proceso.fxml"));
-	 			AnchorPane page = (AnchorPane) loader.load();
+		auxAlert.setTitle(title);
+		auxAlert.setHeaderText(header);
+		auxAlert.setContentText(contextText);
 
-	            // Create the dialog Stage.
-	            Stage dialogStage = new Stage();
-	            dialogStage.setTitle("Consulta cliente");
-	            dialogStage.initModality(Modality.APPLICATION_MODAL);
-	            Scene scene = new Scene(page);
-	            dialogStage.setScene(scene);
-	            scene.getStylesheets().add("css/tables.css");
-	            
-	            // Show the dialog and wait until the user closes it
-	            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	           
-	        }
-    }
-	  /**
-	   * mÈtodo para abrir ventana en modal
-	   */
-	 public static void modalPaginator() {
-    	 try {
-	            // Cargue el archivo fxml y cree una nueva etapa para el cuadro de di·logo emergente.
- 			FXMLLoader loader = new FXMLLoader();
+		return auxAlert;
+	}
+
+	/**
+	 * m√©todo para abrir ventana en modal
+	 */
+	public static void modalFormulario() {
+		try {
+			// Cargue el archivo fxml y cree una nueva etapa para el cuadro de di√°logo
+			// emergente.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(ControllerMenu.class.getResource("/formulario/FormularioCitas.fxml"));
+			GridPane page = (GridPane) loader.load();
+
+			// Create the dialog Stage.
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Consulta cliente");
+			dialogStage.initModality(Modality.APPLICATION_MODAL);
+			Scene scene = new Scene(page);
+			scene.getStylesheets().add("css/formulario.css");
+			dialogStage.setScene(scene);
+
+			dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+	}
+
+	/**
+	 * m√©todo para abrir ventana en modal
+	 */
+	public static void mostrarCita() {
+		try {
+			// Cargue el archivo fxml y cree una nueva etapa para el cuadro de di√°logo
+			// emergente.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(ControllerDatos.class.getResource("/datos/DatosCitas.fxml"));
+			SplitPane page = (SplitPane) loader.load();
+
+			// Create the dialog Stage.
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Consulta cliente");
+			dialogStage.initModality(Modality.APPLICATION_MODAL);
+			Scene scene = new Scene(page);
+			dialogStage.setScene(scene);
+			scene.getStylesheets().add("css/tables.css");
+
+			// Show the dialog and wait until the user closes it
+			dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+	}
+
+	/**
+	 * m√©todo para abrir ventana en modal
+	 */
+	public static void mostrarPendiente() {
+		try {
+			// Cargue el archivo fxml y cree una nueva etapa para el cuadro de di√°logo
+			// emergente.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(PracticaMain.class.getResource("/datos/Proceso.fxml"));
+			AnchorPane page = (AnchorPane) loader.load();
+
+			// Create the dialog Stage.
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Consulta cliente");
+			dialogStage.initModality(Modality.APPLICATION_MODAL);
+			Scene scene = new Scene(page);
+			dialogStage.setScene(scene);
+			scene.getStylesheets().add("css/tables.css");
+
+			// Show the dialog and wait until the user closes it
+			dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+	}
+
+	/**
+	 * m√©todo para abrir ventana en modal
+	 */
+	public static void modalPaginator() {
+		try {
+			// Cargue el archivo fxml y cree una nueva etapa para el cuadro de di√°logo
+			// emergente.
+			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(ControllerPaginator.class.getResource("/paginatorModal/paginator.fxml"));
 			AnchorPane page = (AnchorPane) loader.load();
 
-	            // Create the dialog Stage.
-	            Stage dialogStage = new Stage();
-	            dialogStage.setTitle("ANTES DE EMPEZAR");
-	            dialogStage.initModality(Modality.APPLICATION_MODAL);
-	            Scene scene = new Scene(page);
-	            scene.getStylesheets().add("css/dark.css");
-	            dialogStage.setScene(scene);
-	            ControllerPaginator controller = loader.getController();
-		           controller.setDialogStage(dialogStage);
-	            
-	            // Show the dialog and wait until the user closes it
-	            dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	           
-	        }
-    }
-	 
+			// Create the dialog Stage.
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("ANTES DE EMPEZAR");
+			dialogStage.initModality(Modality.APPLICATION_MODAL);
+			Scene scene = new Scene(page);
+			scene.getStylesheets().add("css/dark.css");
+			dialogStage.setScene(scene);
+			ControllerPaginator controller = loader.getController();
+			controller.setDialogStage(dialogStage);
 
+			// Show the dialog and wait until the user closes it
+			dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+	}
 
 }

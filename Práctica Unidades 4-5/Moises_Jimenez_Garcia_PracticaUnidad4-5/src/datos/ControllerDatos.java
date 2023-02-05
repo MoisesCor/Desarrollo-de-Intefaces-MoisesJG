@@ -29,9 +29,10 @@ import javafx.stage.Stage;
 
 /**
  * Controlador encargado de inicializar los datos creando objetos citas, con
- * funciones de añadir nuevo objeto eliminar o modificar
+ * funciones de aÃ±adir nuevo objeto eliminar o modificar
  * 
- * @author Moisés Jiménez García
+ * @author MoisÃ©s JimÃ©nez GarcÃ­a
+ * @version 4.5
  *
  */
 public class ControllerDatos {
@@ -83,11 +84,11 @@ public class ControllerDatos {
 	Citas cita1;
 
 	/**
-	 * Creación de una lista de citas de forma estática para poder tener acceso a
-	 * ella en los diferentes controladores que requieren de esta información
+	 * CreaciÃ³n de una lista de citas de forma estÃ¡tica para poder tener acceso a
+	 * ella en los diferentes controladores que requieren de esta informaciÃ³n
 	 */
 	public static ObservableList<Citas> datos = FXCollections.observableArrayList(
-			new Citas("Moisés", "Jiménez", 30, "mois@gamil.com", 66666666, "Hombre", "Box1", "tendinitis", "2022-12-10",
+			new Citas("MoisÃ©s", "JimÃ©nez", 30, "mois@gamil.com", 66666666, "Hombre", "Box1", "tendinitis", "2022-12-10",
 					"1111S"),
 			new Citas("Vanesa", "Perez", 22, "vane@gamil.com", 7777777, "Mujer", "Box2", "Esguince", "2022-10-10",
 					"2222T"),
@@ -129,9 +130,9 @@ public class ControllerDatos {
 	}
 
 	/**
-	 * Método para insetar nueva cita/cliente es llamado desde los diferentes
+	 * MÃ©todo para insetar nueva cita/cliente es llamado desde los diferentes
 	 * controladores que se encargan de crear nuevas citas se pasa por parametro la
-	 * cita y esta es añadida al observable principal del que la clase
+	 * cita y esta es aÃ±adida al observable principal del que la clase
 	 * /datos/ControllerPENDIENTESandTERMINADAS.java se nutre para poder cargar los
 	 * datos en su propia tabla dando el valor de su observable el de esta clase
 	 * 
@@ -155,6 +156,7 @@ public class ControllerDatos {
 	 * escrito el usuario coincide con alguno que este en la lista retorna esa cita
 	 * para luego bien validar si el dni corresponde con la persona indicada o para
 	 * autorrellenar el formulario
+	 * 
 	 * @param dni del objeto cita de la lista
 	 * @return
 	 */
@@ -179,11 +181,11 @@ public class ControllerDatos {
 	}
 
 	/**
-	 * Método que se encarga de realizar la busqueda del cliente introducido y se
+	 * MÃ©todo que se encarga de realizar la busqueda del cliente introducido y se
 	 * encarfa de contar cuantas veces aparece en la lista para mostrar al usuario
-	 * cuantas citas tiene, si no aparece ninguna vez en la lista abrirá un alert
+	 * cuantas citas tiene, si no aparece ninguna vez en la lista abrirÃ¡ un alert
 	 * indicando que ese dni no esta registrado pero si existe abrira un modal
-	 * personalizado haciendo la llamada a su método que esta en esta propia clase
+	 * personalizado haciendo la llamada a su mÃ©todo que esta en esta propia clase
 	 * al cual le pasa el cliente buscado, y las veces que aparece
 	 */
 	@FXML
@@ -208,14 +210,14 @@ public class ControllerDatos {
 	}
 
 	/**
-	 * modal información cliente donde recibe por parametro la cita y el número
-	 * de citas llama a su propio controlador pasandole la escena y los propios
-	 * datos que esta misma recibe del método Buscar
+	 * modal informaciÃ³n cliente donde recibe por parametro la cita y el nÃºmero de
+	 * citas llama a su propio controlador pasandole la escena y los propios datos
+	 * que esta misma recibe del mÃ©todo Buscar
 	 */
 	public boolean mostrarDialoho(Citas cita, int num) {
 		System.out.println("entra");
 		try {
-			// Cargue el archivo fxml y cree una nueva etapa para el cuadro de diï¿½logo
+			// Cargue el archivo fxml y cree una nueva etapa para el cuadro de diÃ¯Â¿Â½logo
 			// emergente.
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(ControllerDatos.class.getResource("DatosCitas2.fxml"));
@@ -234,7 +236,7 @@ public class ControllerDatos {
 			// mostrarla.
 			ControllerDatos2 controller = loader.getController();
 			controller.setDialogStage(dialogStage);// le paso la ventana que necesita el controlador
-			controller.setCitas(cita, num);// paso de la infomaciï¿½n
+			controller.setCitas(cita, num);// paso de la infomaciÃ¯Â¿Â½n
 
 			dialogStage.showAndWait(); // como no se cierra ok no va haber hasta que pulse el ok
 

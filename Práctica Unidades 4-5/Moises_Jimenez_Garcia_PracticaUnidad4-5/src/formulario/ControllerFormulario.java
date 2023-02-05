@@ -24,7 +24,8 @@ import javafx.scene.input.KeyEvent;
 /**
  * Controlador del formulario registro citas
  * 
- * @author Moisés Jiménez García
+ * @author MoisÃ©s JimÃ©nez GarcÃ­a
+ * @version 4.5
  *
  */
 
@@ -75,15 +76,15 @@ public class ControllerFormulario {
 	;
 
 	/**
-	 * Método que inicia el formulario y carga 4 eventos de ratón
+	 * MÃ©todo que inicia el formulario y carga 4 eventos de ratÃ³n
 	 */
 	@FXML
 	void initialize() {
 		dd = deshacerBotonFormulario.getPrefHeight();
 
 		/*
-		 * A continuación 4 eventos de raton si pasa por encima del alguno de los
-		 * botones aumentan su tamaño si dejan de estar encima disminuye su tamaño
+		 * A continuaciÃ³n 4 eventos de raton si pasa por encima del alguno de los
+		 * botones aumentan su tamaÃ±o si dejan de estar encima disminuye su tamaÃ±o
 		 */
 		deshacerBotonFormulario.setOnMouseEntered(deshacer -> {
 			deshacerBotonFormulario.setPrefHeight(70);
@@ -104,11 +105,11 @@ public class ControllerFormulario {
 		box.getItems().addAll("Box 1", "Box 2", "Box 3");
 
 		/*
-		 * Creamos un modal de tipo confirmación, para que el usuario verifique que es
+		 * Creamos un modal de tipo confirmaciÃ³n, para que el usuario verifique que es
 		 * lo que de verdad desea hacer
 		 */
-		Alert deshacer = Utilidades.crearAlert(AlertType.CONFIRMATION, "Deshacer", "Requerimiento de confirmación",
-				"¿Desea borrar lo escrito?");
+		Alert deshacer = Utilidades.crearAlert(AlertType.CONFIRMATION, "Deshacer", "Requerimiento de confirmaciÃ³n",
+				"Â¿Desea borrar lo escrito?");
 
 		deshacerBotonFormulario.setOnAction(e -> {
 			deshacer.showAndWait().ifPresent(valor -> {
@@ -133,12 +134,12 @@ public class ControllerFormulario {
 
 		/*
 		 * Creamos FILTRO para validar que introduce el usuario en los campos telefono y
-		 * edad con ello no permitimos que introduzca campos no numéricos
+		 * edad con ello no permitimos que introduzca campos no numÃ©ricos
 		 */
 		formularioTelf.addEventFilter(KeyEvent.KEY_TYPED, (e) -> {
-			System.out.println("Character teléfono: " + e.getCharacter());
+			System.out.println("Character telÃ©fono: " + e.getCharacter());
 			if (Character.isLowerCase(e.getCharacter().charAt(0))) {
-				// Si descomenta esta línea entonces sí que se valida porque es el último evento
+				// Si descomenta esta lÃ­nea entonces sÃ­ que se valida porque es el Ãºltimo evento
 				// que se genera
 				e.consume();
 
@@ -152,13 +153,13 @@ public class ControllerFormulario {
 			if (((numberCode < 65) || (numberCode > 90)) && Character.isLowerCase(event.getCharacter().charAt(0))) {
 				System.out.println("ENTRAAAAAAA");
 				event.consume();
-				Alert alert = Utilidades.crearAlert(AlertType.ERROR, "Error", "Solo números y letras mayusculas",
+				Alert alert = Utilidades.crearAlert(AlertType.ERROR, "Error", "Solo nÃºmeros y letras mayusculas",
 						"intentalo");
 				alert.showAndWait();
 			}
 		});
 
-		// Filtro solo números
+		// Filtro solo nÃºmeros
 		formularioEdad.addEventFilter(KeyEvent.KEY_TYPED, (e) -> {
 			System.out.println("Character edad: " + e.getCharacter());
 			if (Character.isLowerCase(e.getCharacter().charAt(0))) {
@@ -175,8 +176,8 @@ public class ControllerFormulario {
 	}
 
 	/**
-	 * Método que una vez validados los datos crea una nueva cita y llama al metodo
-	 * de ese controlador e introduce la cita, genera un modal de información
+	 * MÃ©todo que una vez validados los datos crea una nueva cita y llama al metodo
+	 * de ese controlador e introduce la cita, genera un modal de informaciÃ³n
 	 * avisando que ha sido correctamente y vuelve a poner todos los campos a null
 	 */
 	@FXML
@@ -199,7 +200,7 @@ public class ControllerFormulario {
 			Citas cita = new Citas(nombre, apellido, edad, email, tlf, sexo, boxx, obser, fecha, dni);
 
 			if (ControllerDatos.nuevoCliente(cita)) {
-				Alert exito = Utilidades.crearAlert(AlertType.INFORMATION, "CONFIRMACIÓN", "Cita añadida",
+				Alert exito = Utilidades.crearAlert(AlertType.INFORMATION, "CONFIRMACIÃ“N", "Cita aÃ±adida",
 						"correctamente");
 				exito.showAndWait();
 
@@ -220,12 +221,13 @@ public class ControllerFormulario {
 	}
 
 	/**
-	 * Método validar datos: Nos creamos un objeto cliente a partir del DNI
+	 * MÃ©todo validar datos: Nos creamos un objeto cliente a partir del DNI
 	 * introduccido por usuario Comprobamos que no se haya cometido errores, y que
-	 * el nombre del cliente del objeto no sea vacío Una vez comprobado y pasado el
+	 * el nombre del cliente del objeto no sea vacÃ­o Una vez comprobado y pasado el
 	 * filtro, ahora si el nombre introduccido por el usuario es diferente al que
 	 * que tiene el cliente de la nueva cita si es diferente es un error ya que
 	 * hemos filtrado por DNI y el nombre de esa persona debe coincidir con su DNI
+	 * 
 	 * @return boolean para verificar errores
 	 */
 	private boolean validarDatos() throws ParseException {
@@ -272,7 +274,7 @@ public class ControllerFormulario {
 		/* Nos creamos un objeto cliente a partir del DNI introduccido por usuario */
 		Citas cliente = ControllerDatos.verificarCliente(formularioDNI.getText().trim());
 		// Comprobamos que no se haya cometido errores, y que el nombre del cliente del
-		// objeto no sea vacío
+		// objeto no sea vacÃ­o
 		if (error == false && !cliente.getNombre().equals("")) {
 			/*
 			 * Una vez comprobado y pasado el filtro, ahora si el nombre introduccido por el
@@ -305,8 +307,8 @@ public class ControllerFormulario {
 
 	/**
 	 * Evento asociado al campo DNI el usuario puede introducir un dni al pulsar
-	 * intro en ese campo se comprueba si pertenece a algún cliente si es así
-	 * autorrellena los campos con la información de ese cliente
+	 * intro en ese campo se comprueba si pertenece a algÃºn cliente si es asÃ­
+	 * autorrellena los campos con la informaciÃ³n de ese cliente
 	 */
 	@FXML
 	void rellenarAutomatico(ActionEvent event) {

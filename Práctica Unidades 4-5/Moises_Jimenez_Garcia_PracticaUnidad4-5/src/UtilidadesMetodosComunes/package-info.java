@@ -1,4 +1,4 @@
 package UtilidadesMetodosComunes;
 /**
- * Contiene una clase Utilidades donde se guardan métodos usados por varios controladores
+ * Contiene una clase Utilidades donde se guardan metodos usados por varios controladores
  */

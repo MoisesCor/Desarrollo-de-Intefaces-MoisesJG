@@ -28,237 +28,227 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 import javafx.stage.Stage;
+
 /**
- * Controlador principal del login y el menu donde suceden todas las acciones disponibles
- * @author Moisés Jiménez García
+ * Controlador principal del login y el menu donde suceden todas las acciones
+ * disponibles
  * 
+ * @author MoisÃ©s JimÃ©nez GarcÃ­a
+ * @version 4.5
  *
  */
 
 public class ControllerMenu {
-	// Pantalla principal en la que se añade o quita contenido
-		private BorderPane rootLayout;
-		Image image2 = new Image(getClass(). getResourceAsStream("pngwing.com.png"));
-			        
-	    @FXML
-	    private Button entrar;
-	
-	    @FXML
-	    private PasswordField psw;
+	// Pantalla principal en la que se aÃ±ade o quita contenido
+	private BorderPane rootLayout;
+	Image image2 = new Image(getClass().getResourceAsStream("pngwing.com.png"));
 
-	    @FXML
-	    private TextField usuario;
-	    
-	    @FXML
-	    private RadioMenuItem idpendientes;
-	    
+	@FXML
+	private Button entrar;
 
-	    @FXML
-	    private RadioMenuItem idacabadas;
-	    
-	    
-	   public static String cualPulsa;
-	    
-	    PracticaMain main;
+	@FXML
+	private PasswordField psw;
 
+	@FXML
+	private TextField usuario;
 
-	    
-	  @FXML
-	    private void initialize() {
-		 
- 
-	    }
-	  
-	    public void setMain(PracticaMain main) {
-	        this.main = main;
-	        
-	    }
-	    
-	    String cadenaOpcion="";
-	    Utilidades util;
-	  
-	  
-	  /**
-	   *  Inicio de sesión donde si el usuario pulsa entrar valida que los campos usuario contraseña son correctos
-	   * Si son correctos, abre modal de ANTES DE EMPEZAR,al hacer ok cierra esa y la del usuario. De lo contrario abre un modal de error
-	   * llamando al método utilidades donde he generado métodos comunes para comodidad
-	   * si el usuario cierra la ventana vuelve abrir la de login, llamando a esa misma ventana
-	   * gracias a la referenci al main creada
-	   */
-	    @FXML
-	    void iniciarSesion(ActionEvent event) {
-	    	if(usuario.getText().equals("usuario") && psw.getText().equals("usuario")) {
-	    		antesEmpeza();
-	    		main.abrirGeneral();
-	    		Stage ventana =(Stage) this.entrar.getScene().getWindow();
-				ventana.close();
-	    	}else {
-	    		 Alert alert = Utilidades.crearAlert(AlertType.ERROR, "ERROR", "Usuario o contraseña incorrectos","vuelva a intentarlo" );
-	       	  alert.showAndWait();
-	    	}
+	@FXML
+	private RadioMenuItem idpendientes;
+
+	@FXML
+	private RadioMenuItem idacabadas;
+
+	public static String cualPulsa;
+
+	PracticaMain main;
+
+	@FXML
+	private void initialize() {
+
+	}
+
+	public void setMain(PracticaMain main) {
+		this.main = main;
+
+	}
+
+	String cadenaOpcion = "";
+	Utilidades util;
+
+	/**
+	 * Inicio de sesiÃ³n donde si el usuario pulsa entrar valida que los campos
+	 * usuario contraseÃ±a son correctos Si son correctos, abre modal de ANTES DE
+	 * EMPEZAR,al hacer ok cierra esa y la del usuario. De lo contrario abre un
+	 * modal de error llamando al mÃ©todo utilidades donde he generado mÃ©todos
+	 * comunes para comodidad si el usuario cierra la ventana vuelve abrir la de
+	 * login, llamando a esa misma ventana gracias a la referenci al main creada
+	 */
+	@FXML
+	void iniciarSesion(ActionEvent event) {
+		if (usuario.getText().equals("usuario") && psw.getText().equals("usuario")) {
+			antesEmpeza();
+			main.abrirGeneral();
+			Stage ventana = (Stage) this.entrar.getScene().getWindow();
+			ventana.close();
+		} else {
+			Alert alert = Utilidades.crearAlert(AlertType.ERROR, "ERROR", "Usuario o contraseÃ±a incorrectos",
+					"vuelva a intentarlo");
+			alert.showAndWait();
 		}
-	    
-	    
-	 
-	    /**
-	     * 
-	     * @param event
-	     */
+	}
+
+	/**
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void abrirFormulario(ActionEvent event) {
-		
+
 		try {
-			// Cargamos el archivo Controles Dinámicos
+			// Cargamos el archivo Controles DinÃ¡micos
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(ControllerMenu.class.getResource("/formulario/FormularioCitas.fxml"));
 			GridPane formularioCitas = (GridPane) loader.load();
 			formularioCitas.getStylesheets().add("css/formulario.css");
 
-			// Se sitúa en el centro del diseño principal
+			// Se sitÃºa en el centro del diseÃ±o principal
 			rootLayout.setCenter(formularioCitas);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-	    }
-	
-	@FXML
-	/*Ventana creada manualmente para probar funcionalidad, al salir queda esta ventana en la central*/
-	   private void cerrarListado(ActionEvent event) throws IOException { 
-		main.abrirGeneral();
-		Image image1 = new Image(getClass(). getResourceAsStream("pngwing.com.png"));
-		ImageView imag= new ImageView(image1);	
-		imag.setFitHeight(198);
-		imag.setFitWidth(300);	
-		 VBox vbox=new VBox();
-		 vbox.setPrefHeight(200);
-		 vbox.setPrefWidth(100);
-		 vbox.setAlignment(Pos.CENTER);
-		 vbox.getChildren().addAll(imag);
-		rootLayout.setCenter(vbox);
-		
 	}
-    @FXML
-    void abrirTodasLasCitas(ActionEvent event) {
-    	try {
-    		FXMLLoader loader = new FXMLLoader();
-        	loader.setLocation(ControllerDatos.class.getResource("/datos/DatosCitas.fxml"));
-			SplitPane datosCitas= (SplitPane) loader.load();
+
+	@FXML
+	/*
+	 * Ventana creada manualmente para probar funcionalidad, al salir queda esta
+	 * ventana en la central
+	 */
+	private void cerrarListado(ActionEvent event) throws IOException {
+		main.abrirGeneral();
+		Image image1 = new Image(getClass().getResourceAsStream("pngwing.com.png"));
+		ImageView imag = new ImageView(image1);
+		imag.setFitHeight(198);
+		imag.setFitWidth(300);
+		VBox vbox = new VBox();
+		vbox.setPrefHeight(200);
+		vbox.setPrefWidth(100);
+		vbox.setAlignment(Pos.CENTER);
+		vbox.getChildren().addAll(imag);
+		rootLayout.setCenter(vbox);
+
+	}
+
+	@FXML
+	void abrirTodasLasCitas(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(ControllerDatos.class.getResource("/datos/DatosCitas.fxml"));
+			SplitPane datosCitas = (SplitPane) loader.load();
 			datosCitas.getStylesheets().add("css/tables.css");
-			
+
 			rootLayout.setCenter(datosCitas);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
-    
-    @FXML
-    void abrirPendientes(ActionEvent event) {
-    	
-    	if(idpendientes.isSelected()) {
-    		
-    		ControllerMenu.cualPulsa="pendientes";
-    	}else if(idacabadas.isSelected()) {
-    		
-    		ControllerMenu.cualPulsa="acabadas";
-    	}
-    	try {
-			// Cargamos el archivo Controles Dinámicos
+	}
+
+	@FXML
+	void abrirPendientes(ActionEvent event) {
+
+		if (idpendientes.isSelected()) {
+
+			ControllerMenu.cualPulsa = "pendientes";
+		} else if (idacabadas.isSelected()) {
+
+			ControllerMenu.cualPulsa = "acabadas";
+		}
+		try {
+			// Cargamos el archivo Controles DinÃ¡micos
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(PracticaMain.class.getResource("/datos/Proceso.fxml"));
 			AnchorPane pendiente = (AnchorPane) loader.load();
 			pendiente.getStylesheets().add("css/tables.css");
-			//desde aqui con el pendiente se carga el css de la misma forma que se hace con la escena
+			// desde aqui con el pendiente se carga el css de la misma forma que se hace con
+			// la escena
 
-			// Se sitúa en el centro del diseño principal
+			// Se sitÃºa en el centro del diseÃ±o principal
 			rootLayout.setCenter(pendiente);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    	
-    	
 
-	    }
-    
+	}
 
-    
-    /**
-     * 
-     * @return Método que devuelve el valor de la selección del menu CITAS devuelve
-     * acabadas o pendientes, es llamado desde /datos/ControllerPENDIENTESandTERMINADAS.java
-     * para filtrar que datos han de cargar en la tabla
-     * El valor de lo que retorna cambia en esta propia clase en el método de abrirPendientes
-     * donde verificamos que opción tiene seleccionada
-     * 
-     * 
-     */
-    public static String cualPulsaUsuario() {
-    	
+	/**
+	 * 
+	 * @return MÃ©todo que devuelve el valor de la selecciÃ³n del menu CITAS devuelve
+	 *         acabadas o pendientes, es llamado desde
+	 *         /datos/ControllerPENDIENTESandTERMINADAS.java para filtrar que datos
+	 *         han de cargar en la tabla El valor de lo que retorna cambia en esta
+	 *         propia clase en el mÃ©todo de abrirPendientes donde verificamos que
+	 *         opciÃ³n tiene seleccionada
+	 * 
+	 * 
+	 */
+	public static String cualPulsaUsuario() {
+
 		return cualPulsa;
-    	
-    }
-    
-    @FXML
-    void abrirTutorial(ActionEvent event) {
-  	 
-    	try {
+
+	}
+
+	@FXML
+	void abrirTutorial(ActionEvent event) {
+
+		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(PracticaMain.class.getResource("/tutorial/Tutorial.fxml"));
-			TabPane tutorial=(TabPane) loader.load();
+			TabPane tutorial = (TabPane) loader.load();
 			tutorial.getStylesheets().add("css/tutorial.css");
 			rootLayout.setCenter(tutorial);
-			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
-    
-    /**
-     * Llamada al modal de Utilidades que abrira ventana de forma emergente dando incicaciones
-     */
-		public void antesEmpeza() {
-			Utilidades.modalPaginator();
-		}
-		
-	    
-	
+	}
+
+	/**
+	 * Llamada al modal de Utilidades que abrira ventana de forma emergente dando
+	 * incicaciones
+	 */
+	public void antesEmpeza() {
+		Utilidades.modalPaginator();
+	}
+
 	public BorderPane getRootLayout() {
 		return rootLayout;
 	}
 
-		/**
-		 * 
-		 * @param rootLayout Necesario para poder cargar la escena
-		 */
+	/**
+	 * 
+	 * @param rootLayout Necesario para poder cargar la escena
+	 */
 	public void setRootLayout(BorderPane rootLayout) {
 		this.rootLayout = rootLayout;
 	}
-	
-	
-    @FXML
-    void abrirEstadisticas(ActionEvent event) {
-    	System.out.println("entra");
 
-    	try {
+	@FXML
+	void abrirEstadisticas(ActionEvent event) {
+		System.out.println("entra");
+
+		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(PracticaMain.class.getResource("/estadisticas/Estadisticas.fxml"));
-			TabPane tutorial=(TabPane) loader.load();
+			TabPane tutorial = (TabPane) loader.load();
 			tutorial.getStylesheets().add("css/graficos.css");
 			rootLayout.setCenter(tutorial);
-			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
+	}
 
-    
-	
-	
-	
-	
 }

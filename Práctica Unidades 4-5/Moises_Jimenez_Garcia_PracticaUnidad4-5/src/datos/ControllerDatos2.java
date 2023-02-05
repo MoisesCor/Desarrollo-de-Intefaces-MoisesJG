@@ -1,9 +1,7 @@
 package datos;
 
-
 import java.net.URL;
 import java.util.ResourceBundle;
-
 
 import javafx.fxml.FXML;
 
@@ -14,86 +12,87 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * Controlador encargado de el modal citar por defecto crea el objeto cita y lo aÒade al controlador principal
- * @author MoisÈs JimÈnez GarcÌa
+ * Controlador encargado de el modal citar por defecto crea el objeto cita y lo
+ * a√±ade al controlador principal
+ * 
+ * @author Mois√©s Jim√©nez Garc√≠a
+ * @version 4.5
  *
  */
 public class ControllerDatos2 {
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-    @FXML
-    private  TextField apellidosLabel;
+	@FXML
+	private TextField apellidosLabel;
 
-    @FXML
-    private  TextField edadLabel;
+	@FXML
+	private TextField edadLabel;
 
-    @FXML
-    private  TextField emailLabel;
+	@FXML
+	private TextField emailLabel;
 
-    @FXML
-    private  TextField nombreLabel;
+	@FXML
+	private TextField nombreLabel;
 
-    @FXML
-    private  Label numCitas;
+	@FXML
+	private Label numCitas;
 
-    @FXML
-    private  TextField telefonoLabel;
-    
-    
-    private Stage dialogStage; // para poder recibir la ventana que necesita
-    private Citas cita;
+	@FXML
+	private TextField telefonoLabel;
 
-    @FXML
-    void initialize() {
-  
+	private Stage dialogStage; // para poder recibir la ventana que necesita
+	private Citas cita;
 
-    }
-    
-    public void setDialogStage(Stage dialogStage) {
-        this.dialogStage = dialogStage;
-    }
-    
-    /**Metodo que es llamado desde controllerDatos que es el que tiene toda la informaciÛn de las citas/clintes
-     * central. El cual manda los datos que este controlador necesita para poder mostrarlos en su escena
-     * en este caso un modal que nos permite una consulta r·pida a la informaciÛn y generar una cita de ese cliente
-     * autom·tica
-     * En este caso a los campos de la venta les da el valor de la cita correspondiente
-     * el cual previamente ha sido filtrado por el mÈtodo buscar
-     * Recogemos el valor de esa cita/cliente en nuestra variable cita
-     * para poder usarla en  mÈtodo citarDefecto de esta clase
-     */
-    public void setCitas(Citas cita, int num) {
-    	this.cita=cita;
-    	nombreLabel.setText(cita.getNombre());
-    	apellidosLabel.setText(cita.getApellidos());
-    	edadLabel.setText(Integer.toString(cita.getEdad()));
-    	telefonoLabel.setText(Integer.toString(cita.getTelefono()));
-    	emailLabel.setText(cita.getEmail());
-    	numCitas.setText(Integer.toString(num));
-    	
-    }
-    
-    @FXML
-    private void salirConsulta() {
-        dialogStage.close();
-    }
-    
-    /**Al pulsar a citar aÒade a la lista general una nueva cita que es la que este propio controlador tiene
-     * guardada en su variable cita, esa variable siempre que se busque un cliente se sobreescribe con los datos actuales
-     * 
-     */
-    @FXML
-    private void citarDefecto() {
-       ControllerDatos.nuevoCliente(cita);
-       dialogStage.close();
-    }
-    
-    
-  
+	@FXML
+	void initialize() {
+
+	}
+
+	public void setDialogStage(Stage dialogStage) {
+		this.dialogStage = dialogStage;
+	}
+
+	/**
+	 * Metodo que es llamado desde controllerDatos que es el que tiene toda la
+	 * informaci√≥n de las citas/clintes central. El cual manda los datos que este
+	 * controlador necesita para poder mostrarlos en su escena en este caso un modal
+	 * que nos permite una consulta r√°pida a la informaci√≥n y generar una cita de
+	 * ese cliente autom√°tica En este caso a los campos de la venta les da el valor
+	 * de la cita correspondiente el cual previamente ha sido filtrado por el m√©todo
+	 * buscar Recogemos el valor de esa cita/cliente en nuestra variable cita para
+	 * poder usarla en m√©todo citarDefecto de esta clase
+	 */
+	public void setCitas(Citas cita, int num) {
+		this.cita = cita;
+		nombreLabel.setText(cita.getNombre());
+		apellidosLabel.setText(cita.getApellidos());
+		edadLabel.setText(Integer.toString(cita.getEdad()));
+		telefonoLabel.setText(Integer.toString(cita.getTelefono()));
+		emailLabel.setText(cita.getEmail());
+		numCitas.setText(Integer.toString(num));
+
+	}
+
+	@FXML
+	private void salirConsulta() {
+		dialogStage.close();
+	}
+
+	/**
+	 * Al pulsar a citar a√±ade a la lista general una nueva cita que es la que este
+	 * propio controlador tiene guardada en su variable cita, esa variable siempre
+	 * que se busque un cliente se sobreescribe con los datos actuales
+	 * 
+	 */
+	@FXML
+	private void citarDefecto() {
+		ControllerDatos.nuevoCliente(cita);
+		dialogStage.close();
+	}
 
 }
