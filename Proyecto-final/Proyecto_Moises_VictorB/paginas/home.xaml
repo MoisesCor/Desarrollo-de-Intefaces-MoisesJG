@@ -12,7 +12,7 @@
         <Canvas.Background>
             <ImageBrush ImageSource="/paginas/fondo.jpg"/>
         </Canvas.Background>
-        <Label  Content="WELCOME" Canvas.Left="160" Canvas.Top="157" Height="85" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="48" Foreground="#FF7D0AC2" FontFamily="Impact" />
+        <Label  Content="WELCOMEe" Canvas.Left="160" Canvas.Top="157" Height="85" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="48" Foreground="#FF7D0AC2" FontFamily="Impact" />
         <Label  Content="PLAYER" Canvas.Left="400" Canvas.Top="210" Height="85" Width="170" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Impact" Foreground="#FF7D0AC2" />
     </Canvas>
 </Page>

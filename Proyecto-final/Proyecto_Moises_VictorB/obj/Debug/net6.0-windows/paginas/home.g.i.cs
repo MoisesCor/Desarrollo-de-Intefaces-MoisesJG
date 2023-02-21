@@ -53,7 +53,7 @@ namespace Proyecto_Moises_VictorB.paginas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Proyecto_Moises_VictorB;component/paginas/home.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Proyecto_Moises_VictorB;V1.0.0.0;component/paginas/home.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\paginas\home.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
