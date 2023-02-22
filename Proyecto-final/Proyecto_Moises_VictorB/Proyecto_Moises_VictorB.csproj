@@ -9,12 +9,16 @@
 
   <ItemGroup>
     <None Remove="Captura de pantalla 2022-12-05 190111.jpg" />
+    <None Remove="paginas\ahorcado.png" />
+    <None Remove="paginas\flyp.jpg" />
     <None Remove="paginas\fondo.jpg" />
     <None Remove="retro.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Captura de pantalla 2022-12-05 190111.jpg" />
+    <Resource Include="paginas\ahorcado.png" />
+    <Resource Include="paginas\flyp.jpg" />
     <Resource Include="paginas\fondo.jpg" />
     <Resource Include="retro.jpg" />
   </ItemGroup>

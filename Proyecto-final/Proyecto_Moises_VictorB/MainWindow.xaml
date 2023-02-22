@@ -104,8 +104,8 @@
        
             <DockPanel Height="434" Width="800">
                 <Canvas Width="115" RenderTransformOrigin="0.478,0.413" Background="Black">
-                    <Button Style="{StaticResource EstiloEjemplo}" HorizontalAlignment="Left" VerticalAlignment="Top" Content="HOME" Canvas.Left="8" Canvas.Top="124" Background="#FF38C036" Foreground="#FFE0800F" FontSize="20" FontFamily="Impact" Click="Button_Click"></Button>
-                    <Button Style="{StaticResource EstiloEjemplo}" Content="Juegos" Canvas.Left="5" Canvas.Top="217" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFDF0505" Foreground="#FFE0800F" BorderBrush="#FFC96464" OpacityMask="#FFE02222" FontFamily="Impact" FontSize="20"/>
+                    <Button x:Name="boton1" Style="{StaticResource EstiloEjemplo}" HorizontalAlignment="Left" VerticalAlignment="Top" Content="HOME" Canvas.Left="8" Canvas.Top="124" Background="#FF38C036" Foreground="#FFE0800F" FontSize="20" FontFamily="Impact" Click="Button_Click"></Button>
+                    <Button Style="{StaticResource EstiloEjemplo}" Content="Juegos" Canvas.Left="5" Canvas.Top="217" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFDF0505" Foreground="#FFE0800F" BorderBrush="#FFC96464" OpacityMask="#FFE02222" FontFamily="Impact" FontSize="20" Click="Button_Click_1"/>
                     <Image Height="100" Canvas.Left="8" Canvas.Top="14" Width="100" RenderTransformOrigin="0.15,0.35" Source="/retro.jpg"/>
 
                 </Canvas>

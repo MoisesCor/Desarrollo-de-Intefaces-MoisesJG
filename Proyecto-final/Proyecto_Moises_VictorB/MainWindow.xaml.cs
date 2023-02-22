@@ -23,12 +23,19 @@ namespace Proyecto_Moises_VictorB
     {
         public MainWindow()
         {
+            
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             myframe.Navigate(new home());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            myframe.Navigate(new juegos());
         }
     }
 }

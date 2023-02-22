@@ -7,12 +7,60 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="home">
+    <Page.Resources>
+        <Style x:Key="NeonLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="FontFamily" Value="Consolas" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Label">
+                        <Border BorderThickness="3" BorderBrush="#00FFFF" CornerRadius="5">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#00FFFF" Offset="0" />
+                                    <GradientStop Color="#FF00FF" Offset="0.5" />
+                                    <GradientStop Color="#00FFFF" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter x:Name="contentPresenter" Margin="5,0,5,0">
+                                <ContentPresenter.Effect>
+                                    <DropShadowEffect BlurRadius="20" ShadowDepth="0" Color="#FF00FF" />
+                                </ContentPresenter.Effect>
+                                <ContentPresenter.RenderTransform>
+                                    <TranslateTransform X="0" Y="0" />
+                                </ContentPresenter.RenderTransform>
+                                <ContentPresenter.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard RepeatBehavior="Forever">
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="contentPresenter">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0.1" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.1" />
+                                                </DoubleAnimationUsingKeyFrames>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="contentPresenter">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-10" />
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </ContentPresenter.Triggers>
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     
     <Canvas>
         <Canvas.Background>
             <ImageBrush ImageSource="/paginas/fondo.jpg"/>
         </Canvas.Background>
-        <Label  Content="WELCOMEe" Canvas.Left="160" Canvas.Top="157" Height="85" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="48" Foreground="#FF7D0AC2" FontFamily="Impact" />
-        <Label  Content="PLAYER" Canvas.Left="400" Canvas.Top="210" Height="85" Width="170" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Impact" Foreground="#FF7D0AC2" />
+        <Label Style="{StaticResource NeonLabelStyle}"  Content="WELCOME" Canvas.Left="160" Canvas.Top="157" Height="85" Width="240" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="48"  FontFamily="Impact" Foreground="#FF95FF41" />
+        <Label Style="{StaticResource NeonLabelStyle}"  Content="PLAYER" Canvas.Left="400" Canvas.Top="210" Height="85" Width="170" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Impact" Foreground="#FF95FF41"  />
     </Canvas>
 </Page>

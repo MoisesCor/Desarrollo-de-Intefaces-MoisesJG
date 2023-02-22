@@ -21,3 +21,5 @@ C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\ref\Proyecto_Moises_VictorB.dll
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\home.g.cs
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\home.baml
+C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\juegos.g.cs
+C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\juegos.baml
