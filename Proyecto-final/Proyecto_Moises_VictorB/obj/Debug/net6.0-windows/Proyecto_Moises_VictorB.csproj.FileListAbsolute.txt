@@ -5,10 +5,16 @@ C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\bin\
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\bin\Debug\net6.0-windows\Proyecto_Moises_VictorB.pdb
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Proyecto_Moises_VictorB.csproj.AssemblyReference.cache
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\home.g.cs
+C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\juegos.g.cs
+C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Ventanas\Flappy.g.cs
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Proyecto_Moises_VictorB_MarkupCompile.cache
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Proyecto_Moises_VictorB_MarkupCompile.lref
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\home.baml
+C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\juegos.baml
+C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Ventanas\Flappy.baml
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Proyecto_Moises_VictorB.g.resources
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Proyecto_Moises_VictorB.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Proyecto_Moises_VictorB.AssemblyInfoInputs.cache
@@ -19,7 +25,3 @@ C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Proyecto_Moises_VictorB.pdb
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\Proyecto_Moises_VictorB.genruntimeconfig.cache
 C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\ref\Proyecto_Moises_VictorB.dll
-C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\home.g.cs
-C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\home.baml
-C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\juegos.g.cs
-C:\Users\moise\source\repos\Proyecto_Moises_VictorB\Proyecto_Moises_VictorB\obj\Debug\net6.0-windows\paginas\juegos.baml

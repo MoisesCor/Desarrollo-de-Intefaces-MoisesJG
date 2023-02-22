@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Moises_VictorB.Ventanas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,14 +42,14 @@ namespace Proyecto_Moises_VictorB.paginas
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main= new MainWindow();
+            Flappy main = new Flappy();
             main.Show();
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
+            Flappy main = new Flappy();
             main.Show();
         }
     }
