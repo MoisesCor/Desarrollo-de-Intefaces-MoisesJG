@@ -13,6 +13,9 @@
     <Compile Update="paginas\juegos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Ventanas\AltaUsuario.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Ventanas\Flappy.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="paginas\juegos.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ventanas\AltaUsuario.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Ventanas\Flappy.xaml">

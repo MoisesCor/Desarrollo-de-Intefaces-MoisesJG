@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "BNb2XWMsr1bF+GNnuHtDpPW32jrjzvy1m8g2WLOf+CWS7/aDSgzcvuSqB12RvE6s+dx7F5krlmdsAPc1cuI+YA==",
+  "dgSpecHash": "V64osJaI0C/64svKCHBySoWItfVODopr2fE/yuToNjNYbkSepPrwOEDWyWfo3kR4y7jpTqK/y1l+PIIxNfCg/w==",
   "success": true,
   "projectFilePath": "C:\\Users\\moise\\source\\repos\\Proyecto_Moises_VictorB\\Proyecto_Moises_VictorB\\Proyecto_Moises_VictorB.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\moise\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"FontAwesome.WPF 4.7.0.9\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net6.0-windows7.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "FontAwesome.WPF",
+      "targetGraphs": [
+        "net6.0-windows7.0"
+      ]
+    }
+  ]
 }

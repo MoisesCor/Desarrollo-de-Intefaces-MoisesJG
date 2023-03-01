@@ -13,11 +13,22 @@
     <None Remove="paginas\flyp.jpg" />
     <None Remove="paginas\fondo.jpg" />
     <None Remove="retro.jpg" />
+    <None Remove="Ventanas\clasico.jpg" />
+    <None Remove="Ventanas\close.png" />
     <None Remove="Ventanas\clouds.png" />
     <None Remove="Ventanas\clouds2.png" />
+    <None Remove="Ventanas\crash2.jpg" />
     <None Remove="Ventanas\flappyBird.png" />
+    <None Remove="Ventanas\Gold.jpg" />
+    <None Remove="Ventanas\min.jpg" />
     <None Remove="Ventanas\pipeBottom.png" />
     <None Remove="Ventanas\pipeTop.png" />
+    <None Remove="Ventanas\silver.jpg" />
+    <None Remove="Ventanas\Sujeto.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,11 +37,18 @@
     <Resource Include="paginas\flyp.jpg" />
     <Resource Include="paginas\fondo.jpg" />
     <Resource Include="retro.jpg" />
+    <Resource Include="Ventanas\clasico.jpg" />
+    <Resource Include="Ventanas\close.png" />
     <Resource Include="Ventanas\clouds.png" />
     <Resource Include="Ventanas\clouds2.png" />
+    <Resource Include="Ventanas\crash2.jpg" />
     <Resource Include="Ventanas\flappyBird.png" />
+    <Resource Include="Ventanas\Gold.jpg" />
+    <Resource Include="Ventanas\min.jpg" />
     <Resource Include="Ventanas\pipeBottom.png" />
     <Resource Include="Ventanas\pipeTop.png" />
+    <Resource Include="Ventanas\silver.jpg" />
+    <Resource Include="Ventanas\Sujeto.png" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Proyecto_Moises_VictorB.paginas;
+using Proyecto_Moises_VictorB.Ventanas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,12 @@ namespace Proyecto_Moises_VictorB
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             myframe.Navigate(new juegos());
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AltaUsuario main = new AltaUsuario();
+            main.Show();
         }
     }
 }
